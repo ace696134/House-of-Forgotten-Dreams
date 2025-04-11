@@ -21,11 +21,16 @@
   </header>
 
   <main>
-    <section id="home" class="hero">
-      <div>
-        <h2>Where Forgotten Treasures Find New Homes</h2>
-        <p>Browse our latest auctions and place your bid today.</p>
+    <section id="auctions" class="container">
+      <h2>Current Auctions</h2>
+      <div id="item-form" style="display:none;">
+        <input type="text" id="item-title" placeholder="Title">
+        <input type="text" id="item-desc" placeholder="Description">
+        <input type="text" id="item-price" placeholder="Price">
+        <input type="file" id="item-img-file">
+        <button id="add-item">Add Item</button>
       </div>
+      <div class="auctions" id="auctions-container"></div>
     </section>
   </main>
 
