@@ -176,18 +176,9 @@ footer {
   right: 0.6rem;
   background: none;
   border: none;
-  color: #
-
-  #login {
-  display: none; /* hidden by default */
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  color: #e0d8c3;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 
 
