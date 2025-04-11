@@ -20,9 +20,9 @@ const loginButton = document.getElementById("login-button");
 const loginModal = document.getElementById("login");
 const loginClose = document.getElementById("login-close");
 const loginForm = document.getElementById("login-form");
-const signupForm = document.getElementById("signup-form");
-const toggleToSignup = document.getElementById("toggle-to-signup");
-const toggleToLogin = document.getElementById("toggle-to-login");
+const signupForm = document.getElementById("signup-form-actual");
+const toggleToSignup = document.getElementById("show-signup");
+const toggleToLogin = document.getElementById("show-login");
 const adminPanel = document.getElementById("admin-panel");
 const newAuctionForm = document.getElementById("new-auction-form");
 
@@ -38,21 +38,21 @@ loginClose.addEventListener("click", () => {
 
 // Toggle to signup form
 toggleToSignup.addEventListener("click", () => {
-  loginForm.style.display = "none";
-  signupForm.style.display = "block";
+  document.getElementById("login-form-fields").style.display = "none";
+  document.getElementById("signup-form").style.display = "block";
 });
 
 // Toggle to login form
 toggleToLogin.addEventListener("click", () => {
-  signupForm.style.display = "none";
-  loginForm.style.display = "block";
+  document.getElementById("signup-form").style.display = "none";
+  document.getElementById("login-form-fields").style.display = "block";
 });
 
 // Login
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const email = loginForm["login-email"].value;
-  const password = loginForm["login-password"].value;
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
   auth.signInWithEmailAndPassword(email, password)
     .then(() => {
       loginModal.style.display = "none";
@@ -63,8 +63,8 @@ loginForm.addEventListener("submit", (e) => {
 // Signup
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const email = signupForm["signup-email"].value;
-  const password = signupForm["signup-password"].value;
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
   auth.createUserWithEmailAndPassword(email, password)
     .then(() => {
       loginModal.style.display = "none";
@@ -124,12 +124,3 @@ auth.onAuthStateChanged(user => {
 db.collection("auctions")
   .orderBy("createdAt", "desc")
   .onSnapshot(renderAuctions);
-
-document.getElementById('login-button').addEventListener('click', () => {
-  document.getElementById('login').style.display = 'flex';
-});
-
-document.getElementById('login-close').addEventListener('click', () => {
-  document.getElementById('login').style.display = 'none';
-});
-
