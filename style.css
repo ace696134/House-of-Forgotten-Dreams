@@ -1,28 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
-
-/* Reset and Base Styling */
-* {
-  box-sizing: border-box;
+/* General Styles */
+body {
+  font-family: 'Georgia', serif;
   margin: 0;
   padding: 0;
-}
-
-body {
-  background-color: #0d0d0d;
+  background: #000;
   color: #e0d8c3;
-  font-family: Georgia, serif;
-  line-height: 1.6;
 }
 
-/* Header */
+/* Header Styles */
 header {
   background-color: #1a1a1a;
   color: #e0d8c3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 1rem 2rem;
-  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header h1 {
@@ -31,16 +23,18 @@ header h1 {
   color: #c00;
 }
 
+/* Navigation */
 nav ul {
-  display: flex;
   list-style: none;
+  display: flex;
   gap: 1.5rem;
+  padding: 0;
+  margin: 0;
 }
 
-nav a,
-#login-button {
-  text-decoration: none;
+nav a, nav button {
   color: #e0d8c3;
+  text-decoration: none;
   background: none;
   border: none;
   font-size: 1rem;
@@ -48,105 +42,37 @@ nav a,
 }
 
 nav a:hover,
-#login-button:hover {
+nav button:hover {
   color: #fff;
-  text-decoration: underline;
+  text-shadow: 0 0 5px #a00;
 }
 
 /* Hero */
 .hero {
-  background-color: #000;
+  background-color: #111;
   text-align: center;
-  padding: 6rem 1rem;
-  color: #fff;
+  padding: 4rem 1rem;
 }
 
 .hero h2 {
   font-family: 'UnifrakturCook', cursive;
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  color: #fff;
 }
 
 .hero p {
   font-size: 1rem;
-  color: #ccc;
+  color: #c9b89f;
 }
 
-/* Container Sections */
+/* Container */
 .container {
   background-color: #1a1a1a;
+  color: #d6c9b3;
   padding: 2rem;
+  max-width: 800px;
   margin: 2rem auto;
-  max-width: 1000px;
   border-radius: 8px;
-}
-
-.container h2 {
-  font-family: 'UnifrakturCook', cursive;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-/* Auction Items */
-.auctions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.auction-card {
-  background-color: #111;
-  border: 1px solid #333;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.auction-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 12px #c00;
-}
-
-.auction-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 1px solid #333;
-}
-
-.auction-card .content {
-  padding: 1rem;
-}
-
-.auction-card h3 {
-  color: #e6b800;
-}
-
-.auction-card p {
-  color: #ccc;
-  font-size: 0.95rem;
-}
-
-/* Form */
-#item-form input,
-#item-form button {
-  margin: 0.3rem 0;
-  padding: 0.5rem;
-  width: 100%;
-  border-radius: 5px;
-  border: 1px solid #555;
-  background-color: #222;
-  color: #ddd;
-}
-
-#item-form button {
-  background: #c00;
-  color: #fff;
-  border: none;
-}
-
-#item-form button:hover {
-  background: #900;
 }
 
 /* Footer */
@@ -155,11 +81,10 @@ footer {
   color: #888;
   text-align: center;
   padding: 1rem;
-  font-size: 0.85rem;
-  margin-top: 2rem;
+  font-size: 0.8rem;
 }
 
-/* Auth Modal */
+/* Login Modal */
 #login {
   display: none;
   position: fixed;
@@ -177,10 +102,8 @@ footer {
   border-radius: 8px;
   max-width: 400px;
   width: 90%;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
   color: #e0d8c3;
   text-align: center;
-  position: relative;
 }
 
 #auth-modal input {
@@ -208,48 +131,10 @@ footer {
   background: #900;
 }
 
-#auth-modal .toggle-link {
-  color: #d6b161;
-  text-decoration: underline;
+.toggle-link {
+  color: #b88961;
   cursor: pointer;
   display: inline-block;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
   font-size: 0.85rem;
-}
-
-#login-close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.6rem;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* Admin Panel */
-#admin-panel {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  background: #222;
-  padding: 1rem;
-  border-radius: 8px;
-  display: none;
-  gap: 0.5rem;
-  flex-direction: column;
-}
-
-#admin-panel button {
-  background: #c00;
-  color: #fff;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-#admin-panel button:hover {
-  background: #900;
 }
