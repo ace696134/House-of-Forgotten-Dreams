@@ -7,6 +7,10 @@ body {
   color: #e0d8c3;
 }
 
+/* Header Fonts */
+h1, h2, h3, .hero h2 {
+  font-family: 'UnifrakturCook', cursive;
+}
 
 /* Header Styles */
 header {
@@ -19,7 +23,6 @@ header {
 }
 
 header h1 {
-  font-family: 'UnifrakturCook', cursive;
   font-size: 2rem;
   color: #c00;
 }
@@ -56,7 +59,6 @@ nav button:hover {
 }
 
 .hero h2 {
-  font-family: 'UnifrakturCook', cursive;
   font-size: 2rem;
   color: #fff;
 }
