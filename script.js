@@ -1,38 +1,53 @@
 import { auth, db } from './firebase-config.js';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut }
-  from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp }
-  from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
+import {
+  collection,
+  addDoc,
+  onSnapshot,
+  query,
+  orderBy,
+  serverTimestamp
+} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
 
-// DOM Elements
-const auctionsContainer = document.getElementById("auctions-container");
+// Elements
 const loginButton = document.getElementById("login-button");
-const loginModal  = document.getElementById("login");
-const loginClose  = document.getElementById("login-close");
-const loginAuthBtn= document.getElementById("login-button-auth");
-const signupBtn   = document.getElementById("signup-button");
+const loginModal = document.getElementById("login");
+const loginClose = document.getElementById("login-close");
+const loginForm = document.getElementById("login-form");
+const signupForm = document.getElementById("signup-form");
 const toggleToSignup = document.getElementById("show-signup");
-const toggleToLogin  = document.getElementById("show-login");
-const adminPanel     = document.getElementById("admin-panel");
-const itemForm       = document.getElementById("item-form");
-const addItemBtn     = document.getElementById("add-item");
+const toggleToLogin = document.getElementById("show-login");
+const auctionsContainer = document.getElementById("auctions-container");
+const adminPanel = document.getElementById("admin-panel");
 
-// Show / hide login modal
-loginButton?.addEventListener("click", () => loginModal.style.display = "flex");
-loginClose?.addEventListener("click", () => loginModal.style.display = "none");
+// Show login modal
+loginButton?.addEventListener("click", () => {
+  loginModal.style.display = "flex";
+});
+
+// Hide login modal
+loginClose?.addEventListener("click", () => {
+  loginModal.style.display = "none";
+});
 
 // Toggle forms
 toggleToSignup?.addEventListener("click", () => {
   document.getElementById("login-form-fields").style.display = "none";
-  document.getElementById("signup-form").style.display = "block";
+  signupForm.style.display = "block";
 });
 toggleToLogin?.addEventListener("click", () => {
-  document.getElementById("signup-form").style.display = "none";
   document.getElementById("login-form-fields").style.display = "block";
+  signupForm.style.display = "none";
 });
 
-// Login
-loginAuthBtn?.addEventListener("click", () => {
+// Log in
+document.getElementById("login-button-auth")?.addEventListener("click", (e) => {
+  e.preventDefault();
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
   signInWithEmailAndPassword(auth, email, password)
@@ -40,8 +55,9 @@ loginAuthBtn?.addEventListener("click", () => {
     .catch(err => alert(err.message));
 });
 
-// Signup
-signupBtn?.addEventListener("click", () => {
+// Sign up
+document.getElementById("signup-button")?.addEventListener("click", (e) => {
+  e.preventDefault();
   const email = document.getElementById("signup-email").value;
   const password = document.getElementById("signup-password").value;
   createUserWithEmailAndPassword(auth, email, password)
@@ -49,15 +65,17 @@ signupBtn?.addEventListener("click", () => {
     .catch(err => alert(err.message));
 });
 
-// Auth observer
+// Auth state
 onAuthStateChanged(auth, user => {
-  adminPanel.style.display = user ? "flex" : "none";
-  itemForm.style.display   = user ? "block" : "none";
+  if (user?.email === "houseofforgottendreams@yahoo.com") {
+    adminPanel.style.display = "flex";
+  } else {
+    adminPanel.style.display = "none";
+  }
 });
 
-// Render auctions
-const auctionsQuery = query(collection(db, "auctions"), orderBy("createdAt", "desc"));
-onSnapshot(auctionsQuery, snapshot => {
+// Load auctions
+onSnapshot(query(collection(db, "auctions"), orderBy("createdAt", "desc")), (snapshot) => {
   auctionsContainer.innerHTML = "";
   snapshot.forEach(doc => {
     const data = doc.data();
@@ -68,32 +86,9 @@ onSnapshot(auctionsQuery, snapshot => {
       <div class="content">
         <h3>${data.title}</h3>
         <p>${data.description}</p>
-        <strong>Starting Bid: $${data.startingBid.toFixed(2)}</strong>
+        <strong>Starting Bid: $${data.startingBid}</strong>
       </div>
     `;
     auctionsContainer.appendChild(card);
   });
 });
-
-// Add auction
-addItemBtn?.addEventListener("click", async () => {
-  const title = document.getElementById("item-title").value.trim();
-  const description = document.getElementById("item-desc").value.trim();
-  const price = parseFloat(document.getElementById("item-price").value);
-  const file = document.getElementById("item-img-file").files[0];
-  if (!title || !description || !price || !file) return alert("Fill all fields and select an image.");
-  const reader = new FileReader();
-  reader.onload = async () => {
-    await addDoc(collection(db, "auctions"), {
-      title,
-      description,
-      imageUrl: reader.result,
-      startingBid: price,
-      createdAt: serverTimestamp()
-    });
-  };
-  reader.readAsDataURL(file);
-});
-
-// Logout
-document.getElementById("logout-button")?.addEventListener("click", () => signOut(auth));
