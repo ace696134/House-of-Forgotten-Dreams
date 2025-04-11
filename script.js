@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 // Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
@@ -120,3 +121,4 @@ auth.onAuthStateChanged(user => {
 db.collection("auctions")
   .orderBy("createdAt", "desc")
   .onSnapshot(renderAuctions);
+});
