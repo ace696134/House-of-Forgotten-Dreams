@@ -1,7 +1,8 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app-check.js";
+// firebase-config.js
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app-check.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
@@ -14,13 +15,13 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
-initializeAppCheck(app, {
-  provider: new ReCaptchaEnterpriseProvider('6LewEBUrAAAAAILpiN3OfFxxK7CbO6VHht2gJgHC'),
-  isTokenAutoRefreshEnabled: true,
-});
-
 const auth = getAuth(app);
 const db = getFirestore(app);
+
+// App Check (reCAPTCHA Enterprise)
+initializeAppCheck(app, {
+  provider: new ReCaptchaEnterpriseProvider('6LewEBUrAAAAAILpiN3OfFxxK7CbO6VHht2gJgHC'),
+  isTokenAutoRefreshEnabled: true
+});
 
 export { auth, db };
