@@ -46,13 +46,16 @@ document.getElementById("login-button-auth")?.addEventListener("click", (e) => {
   e.preventDefault();
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
+
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
       localStorage.setItem("userLoggedIn", "true");
-      window.location.href = "https://ace696134.github.io/index.html";
+      loginModal.style.display = "none"; // Hide modal if on a modal-based page
+      window.location.href = "https://ace696134.github.io/index.html"; // Redirect to home
     })
     .catch(err => alert(err.message));
 });
+
 
 document.getElementById("signup-button")?.addEventListener("click", (e) => {
   e.preventDefault();
