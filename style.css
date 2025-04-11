@@ -5,11 +5,13 @@ body {
   padding: 0;
   background: #f4f1ee;
   color: #3e3e3e;
-  display: flex;
+  /* Remove the next three lines 👇 */
+  /* display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; */
   min-height: 100vh;
 }
+
 
 header {
   background-color: #3d2c29;
