@@ -1,4 +1,4 @@
-// Firebase config (replace with your actual config)
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
   authDomain: "backend-e5b61.firebaseapp.com",
@@ -111,13 +111,9 @@ function renderAuctions(snapshot) {
   });
 }
 
-// Listen for auth changes
+// Auth state changes
 auth.onAuthStateChanged(user => {
-  if (user) {
-    adminPanel.style.display = "flex";
-  } else {
-    adminPanel.style.display = "none";
-  }
+  adminPanel.style.display = user ? "flex" : "none";
 });
 
 // Listen for auctions
