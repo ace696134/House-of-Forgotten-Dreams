@@ -1,3 +1,6 @@
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-check-compat.js"></script>
+
 document.addEventListener("DOMContentLoaded", () => {
   // Firebase config
   const firebaseConfig = {
@@ -121,4 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
   db.collection("auctions")
     .orderBy("createdAt", "desc")
     .onSnapshot(renderAuctions);
+
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "firebase/app-check";
+
+// Initialize App Check with reCAPTCHA Enterprise
+const appCheck = initializeAppCheck(firebaseApp, {
+  provider: new ReCaptchaEnterpriseProvider('6LewEBUrAAAAAILpiN3OfFxxK7CbO6VHht2gJgHC'),
+  isTokenAutoRefreshEnabled: true
+});
+
 });
