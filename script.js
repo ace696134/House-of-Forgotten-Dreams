@@ -124,3 +124,12 @@ auth.onAuthStateChanged(user => {
 db.collection("auctions")
   .orderBy("createdAt", "desc")
   .onSnapshot(renderAuctions);
+
+document.getElementById('login-button').addEventListener('click', () => {
+  document.getElementById('login').style.display = 'flex';
+});
+
+document.getElementById('login-close').addEventListener('click', () => {
+  document.getElementById('login').style.display = 'none';
+});
+
