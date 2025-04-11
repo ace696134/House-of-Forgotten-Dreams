@@ -1,1 +1,488 @@
-data:text/html;charset=utf-8,%3C!DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22en%22%3E%0A%0A%3Chead%3E%0A%20%20%3Cmeta%20charset%3D%22UTF-8%22%20%2F%3E%0A%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1.0%22%2F%3E%0A%20%20%3Ctitle%3EHouse%20of%20Forgotten%20Dreams%3C%2Ftitle%3E%0A%20%20%3Cstyle%3E%0A%20%20%20%20%40import%20url('https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DUnifrakturCook%3Awght%40700%26family%3DIM%2BFell%2BEnglish%2BSC%26display%3Dswap')%3B%0A%0A%20%20%20%20body%20%7B%0A%20%20%20%20%20%20margin%3A%200%3B%0A%20%20%20%20%20%20font-family%3A%20'IM%20Fell%20English%20SC'%2C%20serif%3B%0A%20%20%20%20%20%20background%3A%20%230e0e0e%20url('https%3A%2F%2Fwww.transparenttextures.com%2Fpatterns%2Fblack-felt.png')%3B%0A%20%20%20%20%20%20color%3A%20%23ccc%3B%0A%20%20%20%20%20%20line-height%3A%201.6%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20header%20%7B%0A%20%20%20%20%20%20background%3A%20%231a1a1a%3B%0A%20%20%20%20%20%20color%3A%20%23e0dede%3B%0A%20%20%20%20%20%20padding%3A%201rem%200%3B%0A%20%20%20%20%20%20position%3A%20relative%3B%0A%20%20%20%20%20%20border-bottom%3A%202px%20solid%20%23444%3B%0A%20%20%20%20%20%20box-shadow%3A%200%200%2010px%20%23000%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20header%20h1%20%7B%0A%20%20%20%20%20%20font-family%3A%20'UnifrakturCook'%2C%20cursive%3B%0A%20%20%20%20%20%20font-size%3A%202.5rem%3B%0A%20%20%20%20%20%20color%3A%20%23a00%3B%0A%20%20%20%20%20%20text-shadow%3A%202px%202px%204px%20%23000%3B%0A%20%20%20%20%20%20margin%3A%200%3B%0A%20%20%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20%20%20left%3A%201rem%3B%0A%20%20%20%20%20%20top%3A%201rem%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20nav%20ul%20%7B%0A%20%20%20%20%20%20list-style%3A%20none%3B%0A%20%20%20%20%20%20display%3A%20flex%3B%0A%20%20%20%20%20%20justify-content%3A%20center%3B%0A%20%20%20%20%20%20margin%3A%200%3B%0A%20%20%20%20%20%20padding%3A%200%3B%0A%20%20%20%20%20%20gap%3A%202rem%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20nav%20ul%20li%20a%2C%0A%20%20%20%20nav%20ul%20li%20button%20%7B%0A%20%20%20%20%20%20color%3A%20%23dcdcdc%3B%0A%20%20%20%20%20%20text-decoration%3A%20none%3B%0A%20%20%20%20%20%20background%3A%20none%3B%0A%20%20%20%20%20%20border%3A%20none%3B%0A%20%20%20%20%20%20cursor%3A%20pointer%3B%0A%20%20%20%20%20%20font-family%3A%20'IM%20Fell%20English%20SC'%2C%20serif%3B%0A%20%20%20%20%20%20font-size%3A%201rem%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20nav%20ul%20li%20a%3Ahover%2C%0A%20%20%20%20nav%20ul%20li%20button%3Ahover%20%7B%0A%20%20%20%20%20%20color%3A%20%23fff%3B%0A%20%20%20%20%20%20text-shadow%3A%200%200%205px%20%23a00%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.hero%20%7B%0A%20%20%20%20%20%20background%3A%20linear-gradient(rgba(0%2C0%2C0%2C0.7)%2C%20rgba(0%2C0%2C0%2C0.7))%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20url('image.png')%20center%2Fcover%20no-repeat%3B%0A%20%20%20%20%20%20height%3A%2060vh%3B%0A%20%20%20%20%20%20display%3A%20flex%3B%0A%20%20%20%20%20%20align-items%3A%20center%3B%0A%20%20%20%20%20%20justify-content%3A%20center%3B%0A%20%20%20%20%20%20color%3A%20%23f5f5f5%3B%0A%20%20%20%20%20%20text-shadow%3A%202px%202px%206px%20%23000%3B%0A%20%20%20%20%20%20border-bottom%3A%202px%20solid%20%23444%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.hero%20h2%20%7B%0A%20%20%20%20%20%20font-size%3A%202.5rem%3B%0A%20%20%20%20%20%20margin-bottom%3A%201rem%3B%0A%20%20%20%20%20%20font-family%3A%20'UnifrakturCook'%2C%20cursive%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.container%20%7B%0A%20%20%20%20%20%20width%3A%2090%25%3B%0A%20%20%20%20%20%20max-width%3A%201200px%3B%0A%20%20%20%20%20%20margin%3A%202rem%20auto%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.auctions%20%7B%0A%20%20%20%20%20%20display%3A%20grid%3B%0A%20%20%20%20%20%20grid-template-columns%3A%20repeat(auto-fit%2C%20minmax(250px%2C%201fr))%3B%0A%20%20%20%20%20%20gap%3A%201.5rem%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.auction-item%20%7B%0A%20%20%20%20%20%20border%3A%201px%20solid%20%23444%3B%0A%20%20%20%20%20%20background%3A%20%231b1b1b%3B%0A%20%20%20%20%20%20border-radius%3A%208px%3B%0A%20%20%20%20%20%20overflow%3A%20hidden%3B%0A%20%20%20%20%20%20display%3A%20flex%3B%0A%20%20%20%20%20%20flex-direction%3A%20column%3B%0A%20%20%20%20%20%20position%3A%20relative%3B%0A%20%20%20%20%20%20transition%3A%20transform%200.3s%20ease%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.auction-item%3Ahover%20%7B%0A%20%20%20%20%20%20transform%3A%20scale(1.02)%3B%0A%20%20%20%20%20%20box-shadow%3A%200%200%2015px%20%23a00%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.auction-item%20img%20%7B%0A%20%20%20%20%20%20width%3A%20100%25%3B%0A%20%20%20%20%20%20height%3A%20200px%3B%0A%20%20%20%20%20%20object-fit%3A%20cover%3B%0A%20%20%20%20%20%20filter%3A%20grayscale(30%25)%20contrast(1.2)%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.auction-item-content%20%7B%0A%20%20%20%20%20%20padding%3A%201rem%3B%0A%20%20%20%20%20%20flex%3A%201%3B%0A%20%20%20%20%20%20display%3A%20flex%3B%0A%20%20%20%20%20%20flex-direction%3A%20column%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.auction-item-content%20h3%20%7B%0A%20%20%20%20%20%20color%3A%20%23e6b800%3B%0A%20%20%20%20%20%20margin-bottom%3A%200.5rem%3B%0A%20%20%20%20%20%20font-family%3A%20'IM%20Fell%20English%20SC'%2C%20serif%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.auction-item-content%20p%20%7B%0A%20%20%20%20%20%20margin%3A%200.5rem%200%3B%0A%20%20%20%20%20%20flex%3A%201%3B%0A%20%20%20%20%20%20color%3A%20%23bbb%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.auction-item-content%20.btn%20%7B%0A%20%20%20%20%20%20background%3A%20%23a00%3B%0A%20%20%20%20%20%20color%3A%20%23fff%3B%0A%20%20%20%20%20%20padding%3A%200.5rem%3B%0A%20%20%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20%20%20text-decoration%3A%20none%3B%0A%20%20%20%20%20%20border-radius%3A%203px%3B%0A%20%20%20%20%20%20transition%3A%20background%200.3s%20ease%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.auction-item-content%20.btn%3Ahover%20%7B%0A%20%20%20%20%20%20background%3A%20%23700%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20footer%20%7B%0A%20%20%20%20%20%20background%3A%20%23111%3B%0A%20%20%20%20%20%20color%3A%20%23777%3B%0A%20%20%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20%20%20padding%3A%201rem%200%3B%0A%20%20%20%20%20%20margin-top%3A%202rem%3B%0A%20%20%20%20%20%20font-size%3A%200.9rem%3B%0A%20%20%20%20%20%20border-top%3A%202px%20solid%20%23333%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20%23admin-panel%20%7B%0A%20%20%20%20%20%20padding%3A%201rem%3B%0A%20%20%20%20%20%20background%3A%20%23222%3B%0A%20%20%20%20%20%20text-align%3A%20center%3B%0A%20%20%20%20%20%20display%3A%20none%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20%23admin-panel%20button%20%7B%0A%20%20%20%20%20%20margin%3A%200%200.5rem%3B%0A%20%20%20%20%20%20padding%3A%200.5rem%201rem%3B%0A%20%20%20%20%20%20background%3A%20%23a00%3B%0A%20%20%20%20%20%20border%3A%20none%3B%0A%20%20%20%20%20%20color%3A%20white%3B%0A%20%20%20%20%20%20cursor%3A%20pointer%3B%0A%20%20%20%20%20%20border-radius%3A%205px%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20.remove-btn%20%7B%0A%20%20%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20%20%20top%3A%200.5rem%3B%0A%20%20%20%20%20%20right%3A%200.5rem%3B%0A%20%20%20%20%20%20background%3A%20%23a00%3B%0A%20%20%20%20%20%20color%3A%20%23fff%3B%0A%20%20%20%20%20%20border%3A%20none%3B%0A%20%20%20%20%20%20padding%3A%200.3rem%200.5rem%3B%0A%20%20%20%20%20%20cursor%3A%20pointer%3B%0A%20%20%20%20%20%20border-radius%3A%203px%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20a%20%7B%0A%20%20%20%20%20%20color%3A%20%23d6b161%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20a%3Ahover%20%7B%0A%20%20%20%20%20%20color%3A%20%23fff%3B%0A%20%20%20%20%20%20text-shadow%3A%200%200%205px%20%23a00%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20%2F*%20Enhanced%20Contact%20Section%20styles%20remain%20the%20same%20as%20before%20if%20needed%20*%2F%0A%0A%20%20%20%20%2F*%20Firebase%20Auth%20Modal%20Styles%20*%2F%0A%20%20%20%20%23login%20%7B%0A%20%20%20%20%20%20display%3A%20none%3B%0A%20%20%20%20%20%20position%3A%20fixed%3B%0A%20%20%20%20%20%20top%3A%200%3B%20left%3A%200%3B%0A%20%20%20%20%20%20width%3A%20100%25%3B%20height%3A%20100%25%3B%0A%20%20%20%20%20%20background%3A%20rgba(0%2C0%2C0%2C0.8)%3B%0A%20%20%20%20%20%20align-items%3A%20center%3B%0A%20%20%20%20%20%20justify-content%3A%20center%3B%0A%20%20%20%20%7D%0A%20%20%20%20%23auth-modal%20%7B%0A%20%20%20%20%20%20background%3A%20%23222%3B%0A%20%20%20%20%20%20padding%3A%202rem%3B%0A%20%20%20%20%20%20border-radius%3A%208px%3B%0A%20%20%20%20%20%20box-shadow%3A%200%200%2020px%20%23000%3B%0A%20%20%20%20%20%20color%3A%20%23eee%3B%0A%20%20%20%20%20%20font-family%3A%20'IM%20Fell%20English%20SC'%2C%20serif%3B%0A%20%20%20%20%20%20position%3A%20relative%3B%0A%20%20%20%20%20%20width%3A%20320px%3B%0A%20%20%20%20%7D%0A%20%20%20%20%23auth-modal%20input%20%7B%0A%20%20%20%20%20%20width%3A%20100%25%3B%0A%20%20%20%20%20%20padding%3A%200.5rem%3B%0A%20%20%20%20%20%20margin-bottom%3A%201rem%3B%0A%20%20%20%20%20%20background%3A%20%23111%3B%0A%20%20%20%20%20%20border%3A%201px%20solid%20%23555%3B%0A%20%20%20%20%20%20color%3A%20%23ddd%3B%0A%20%20%20%20%7D%0A%20%20%20%20%23auth-modal%20button%20%7B%0A%20%20%20%20%20%20width%3A%20100%25%3B%0A%20%20%20%20%20%20padding%3A%200.5rem%3B%0A%20%20%20%20%20%20background%3A%20%23a00%3B%0A%20%20%20%20%20%20border%3A%20none%3B%0A%20%20%20%20%20%20color%3A%20%23fff%3B%0A%20%20%20%20%20%20cursor%3A%20pointer%3B%0A%20%20%20%20%20%20border-radius%3A%203px%3B%0A%20%20%20%20%20%20font-family%3A%20inherit%3B%0A%20%20%20%20%7D%0A%20%20%20%20.toggle-link%20%7B%0A%20%20%20%20%20%20color%3A%20%23d6b161%3B%0A%20%20%20%20%20%20text-decoration%3A%20underline%3B%0A%20%20%20%20%20%20cursor%3A%20pointer%3B%0A%20%20%20%20%7D%0A%20%20%20%20%23login-close%20%7B%0A%20%20%20%20%20%20position%3A%20absolute%3B%0A%20%20%20%20%20%20top%3A%200.5rem%3B%0A%20%20%20%20%20%20right%3A%200.5rem%3B%0A%20%20%20%20%20%20background%3A%20none%3B%0A%20%20%20%20%20%20border%3A%20none%3B%0A%20%20%20%20%20%20font-size%3A%201.5rem%3B%0A%20%20%20%20%20%20color%3A%20%23eee%3B%0A%20%20%20%20%20%20cursor%3A%20pointer%3B%0A%20%20%20%20%7D%0A%20%20%3C%2Fstyle%3E%0A%3C%2Fhead%3E%0A%0A%3Cbody%3E%0A%20%20%3Cheader%3E%0A%20%20%20%20%3Ch1%3EHouse%20of%20Forgotten%20Dreams%3C%2Fh1%3E%0A%20%20%20%20%3Cnav%3E%0A%20%20%20%20%20%20%3Cul%3E%0A%20%20%20%20%20%20%20%20%3Cli%3E%3Ca%20href%3D%22%23home%22%3EHome%3C%2Fa%3E%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%3Cli%3E%3Ca%20href%3D%22%23auctions%22%3EAuctions%3C%2Fa%3E%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%3Cli%3E%3Ca%20href%3D%22%23about%22%3EAbout%3C%2Fa%3E%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%3Cli%3E%3Ca%20href%3D%22%23contact%22%3EContact%3C%2Fa%3E%3C%2Fli%3E%0A%20%20%20%20%20%20%20%20%3Cli%3E%3Cbutton%20id%3D%22login-button%22%3ELogin%3C%2Fbutton%3E%3C%2Fli%3E%0A%20%20%20%20%20%20%3C%2Ful%3E%0A%20%20%20%20%3C%2Fnav%3E%0A%20%20%3C%2Fheader%3E%0A%0A%20%20%3Cmain%3E%0A%20%20%20%20%3Csection%20id%3D%22home%22%20class%3D%22hero%22%3E%0A%20%20%20%20%20%20%3Cdiv%3E%0A%20%20%20%20%20%20%20%20%3Ch2%3EWhere%20Forgotten%20Treasures%20Find%20New%20Homes%3C%2Fh2%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EBrowse%20our%20latest%20auctions%20and%20place%20your%20bid%20today.%3C%2Fp%3E%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%3C%2Fsection%3E%0A%0A%20%20%20%20%3Csection%20id%3D%22auctions%22%20class%3D%22container%22%3E%0A%20%20%20%20%20%20%3Ch2%3ECurrent%20Auctions%3C%2Fh2%3E%0A%20%20%20%20%20%20%3Cdiv%20id%3D%22item-form%22%20style%3D%22display%3Anone%3B%22%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22item-title%22%20placeholder%3D%22Title%22%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22item-desc%22%20placeholder%3D%22Description%22%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22text%22%20id%3D%22item-price%22%20placeholder%3D%22Price%22%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22file%22%20id%3D%22item-img-file%22%3E%0A%20%20%20%20%20%20%20%20%3Cbutton%20id%3D%22add-item%22%3EAdd%20Item%3C%2Fbutton%3E%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22auctions%22%20id%3D%22auctions-container%22%3E%3C%2Fdiv%3E%0A%20%20%20%20%3C%2Fsection%3E%0A%0A%20%20%20%20%3Csection%20id%3D%22about%22%20class%3D%22container%22%3E%0A%20%20%20%20%20%20%3Ch2%3EAbout%20Us%3C%2Fh2%3E%0A%20%20%20%20%20%20%3Cp%3EHouse%20of%20Forgotten%20Dreams%20is%20a%20family-owned%20auction%20business.%20We%20specialize%20in%20unique%2C%20forgotten%20treasures%20waiting%20for%20new%20owners.%3C%2Fp%3E%0A%20%20%20%20%20%20%3Cp%3EFollow%20us%20on%20%3Ca%20href%3D%22https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100090733082523%22%20target%3D%22_blank%22%3EFacebook%3C%2Fa%3E%20for%20the%20latest%20auctions.%3C%2Fp%3E%0A%20%20%20%20%3C%2Fsection%3E%0A%0A%20%20%20%20%3C!--%20Enhanced%20Contact%20Section%20--%3E%0A%20%20%20%20%3Csection%20id%3D%22contact%22%20class%3D%22container%22%3E%0A%20%20%20%20%20%20%3Ch2%3EContact%3C%2Fh2%3E%0A%20%20%20%20%20%20%3Cp%3EEmail%3A%20%3Ca%20href%3D%22mailto%3Ahouseofforgottendreams%40yahoo.com%22%3Ehouseofforgottendreams%40yahoo.com%3C%2Fa%3E%3C%2Fp%3E%0A%20%20%20%20%20%20%3Cp%3EFacebook%3A%20%3Ca%20href%3D%22https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100090733082523%22%20target%3D%22_blank%22%3EHouse%20of%20Forgotten%20Dreams%3C%2Fa%3E%3C%2Fp%3E%0A%20%20%20%20%20%20%3C!--%20Google%20Reviews%20Widget%20--%3E%0A%20%20%20%20%20%20%3Cdiv%20class%3D%22elfsight-app-cc15e35b-2e1d-4a8f-89d9-232bd9ec5fc3%22%20data-elfsight-app-lazy%3E%3C%2Fdiv%3E%0A%20%20%20%20%20%20%3Cscript%20src%3D%22https%3A%2F%2Fstatic.elfsight.com%2Fplatform%2Fplatform.js%22%20data-use-service-core%20defer%3E%3C%2Fscript%3E%0A%20%20%20%20%3C%2Fsection%3E%0A%20%20%3C%2Fmain%3E%0A%0A%20%20%3Cfooter%3E%0A%20%20%20%20%3Cp%3E%26copy%3B%202025%20House%20of%20Forgotten%20Dreams.%20All%20rights%20reserved.%3C%2Fp%3E%0A%20%20%3C%2Ffooter%3E%0A%0A%20%20%3Cdiv%20id%3D%22admin-panel%22%3E%0A%20%20%20%20%3Cbutton%20id%3D%22toggle-edit%22%3EToggle%20Edit%20Mode%3C%2Fbutton%3E%0A%20%20%20%20%3Cbutton%20id%3D%22save-changes%22%3ESave%20Changes%3C%2Fbutton%3E%0A%20%20%3C%2Fdiv%3E%0A%0A%20%20%3C!--%20Firebase%20Auth%20Modal%20--%3E%0A%20%20%3Cdiv%20id%3D%22login%22%3E%0A%20%20%20%20%3Cdiv%20id%3D%22auth-modal%22%3E%0A%20%20%20%20%20%20%3Cbutton%20id%3D%22login-close%22%3E%26times%3B%3C%2Fbutton%3E%0A%20%20%20%20%20%20%3Ch2%20id%3D%22auth-title%22%3ELog%20In%3C%2Fh2%3E%0A%20%20%20%20%20%20%3Cdiv%20id%3D%22login-form-fields%22%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22email%22%20id%3D%22login-email%22%20placeholder%3D%22Email%22%20required%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22password%22%20id%3D%22login-password%22%20placeholder%3D%22Password%22%20required%3E%0A%20%20%20%20%20%20%20%20%3Cbutton%20id%3D%22login-button-auth%22%3ELog%20In%3C%2Fbutton%3E%0A%20%20%20%20%20%20%20%20%3Cp%3ENew%20here%3F%20%3Cspan%20class%3D%22toggle-link%22%20id%3D%22show-signup%22%3ESign%20Up%3C%2Fspan%3E%3C%2Fp%3E%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%3Cdiv%20id%3D%22signup-form%22%20style%3D%22display%3Anone%3B%22%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22email%22%20id%3D%22signup-email%22%20placeholder%3D%22Email%22%20required%3E%0A%20%20%20%20%20%20%20%20%3Cinput%20type%3D%22password%22%20id%3D%22signup-password%22%20placeholder%3D%22Password%22%20required%3E%0A%20%20%20%20%20%20%20%20%3Cbutton%20id%3D%22signup-button%22%3ESign%20Up%3C%2Fbutton%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EAlready%20have%20an%20account%3F%20%3Cspan%20class%3D%22toggle-link%22%20id%3D%22show-login%22%3ELog%20In%3C%2Fspan%3E%3C%2Fp%3E%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%20%20%3Cbutton%20id%3D%22logout-button%22%20style%3D%22display%3Anone%3B%20margin-top%3A1rem%3B%22%3ELog%20Out%3C%2Fbutton%3E%0A%20%20%20%20%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%0A%20%20%3Cscript%20type%3D%22module%22%3E%0A%20%20%20%20import%20%7B%20initializeApp%20%7D%20from%20%22https%3A%2F%2Fwww.gstatic.com%2Ffirebasejs%2F11.6.0%2Ffirebase-app.js%22%3B%0A%20%20%20%20import%20%7B%20getDatabase%2C%20ref%2C%20set%2C%20get%2C%20onValue%2C%20remove%20%7D%20from%20%22https%3A%2F%2Fwww.gstatic.com%2Ffirebasejs%2F11.6.0%2Ffirebase-database.js%22%3B%0A%20%20%20%20import%20%7B%20getAuth%2C%20createUserWithEmailAndPassword%2C%20signInWithEmailAndPassword%2C%20signOut%2C%20onAuthStateChanged%20%7D%20from%20%22https%3A%2F%2Fwww.gstatic.com%2Ffirebasejs%2F11.6.0%2Ffirebase-auth.js%22%3B%0A%0A%20%20%20%20const%20firebaseConfig%20%3D%20%7B%0A%20%20%20%20%20%20apiKey%3A%20%22AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE%22%2C%0A%20%20%20%20%20%20authDomain%3A%20%22backend-e5b61.firebaseapp.com%22%2C%0A%20%20%20%20%20%20databaseURL%3A%20%22https%3A%2F%2Fbackend-e5b61-default-rtdb.firebaseio.com%2F%22%2C%0A%20%20%20%20%20%20projectId%3A%20%22backend-e5b61%22%2C%0A%20%20%20%20%20%20storageBucket%3A%20%22backend-e5b61.appspot.com%22%2C%0A%20%20%20%20%20%20messagingSenderId%3A%20%221081485617349%22%2C%0A%20%20%20%20%20%20appId%3A%20%221%3A1081485617349%3Aweb%3A073f122bcb6501701068ac%22%2C%0A%20%20%20%20%20%20measurementId%3A%20%22G-XFKGCDJ51G%22%0A%20%20%20%20%7D%3B%0A%0A%20%20%20%20const%20app%20%3D%20initializeApp(firebaseConfig)%3B%0A%20%20%20%20const%20db%20%3D%20getDatabase(app)%3B%0A%20%20%20%20const%20auth%20%3D%20getAuth(app)%3B%0A%20%20%20%20const%20itemsRef%20%3D%20ref(db%2C%20'auctionItems')%3B%0A%20%20%20%20let%20isAdmin%20%3D%20false%3B%0A%0A%20%20%20%20%2F%2F%20UI%20elements%20for%20Auth%0A%20%20%20%20const%20authModal%20%20%20%3D%20document.getElementById('login')%3B%0A%20%20%20%20const%20openModal%20%20%20%3D%20document.getElementById('login-button')%3B%0A%20%20%20%20const%20closeModal%20%20%3D%20document.getElementById('login-close')%3B%0A%20%20%20%20const%20showSignup%20%20%3D%20document.getElementById('show-signup')%3B%0A%20%20%20%20const%20showLogin%20%20%20%3D%20document.getElementById('show-login')%3B%0A%20%20%20%20const%20loginFields%20%3D%20document.getElementById('login-form-fields')%3B%0A%20%20%20%20const%20signupForm%20%20%3D%20document.getElementById('signup-form')%3B%0A%20%20%20%20const%20authTitle%20%20%20%3D%20document.getElementById('auth-title')%3B%0A%20%20%20%20const%20signupBtn%20%20%20%3D%20document.getElementById('signup-button')%3B%0A%20%20%20%20const%20loginAuthBtn%3D%20document.getElementById('login-button-auth')%3B%0A%20%20%20%20const%20logoutBtn%20%20%20%3D%20document.getElementById('logout-button')%3B%0A%0A%20%20%20%20%2F%2F%20Toggle%20modal%20display%0A%20%20%20%20openModal.addEventListener('click'%2C%20()%20%3D%3E%20authModal.style.display%20%3D%20'flex')%3B%0A%20%20%20%20closeModal.addEventListener('click'%2C%20()%20%3D%3E%20authModal.style.display%20%3D%20'none')%3B%0A%0A%20%20%20%20%2F%2F%20Toggle%20between%20login%20and%20signup%20forms%0A%20%20%20%20showSignup.addEventListener('click'%2C%20e%20%3D%3E%20%7B%0A%20%20%20%20%20%20authTitle.textContent%20%3D%20'Sign%20Up'%3B%0A%20%20%20%20%20%20loginFields.style.display%20%3D%20'none'%3B%0A%20%20%20%20%20%20signupForm.style.display%20%3D%20'block'%3B%0A%20%20%20%20%7D)%3B%0A%20%20%20%20showLogin.addEventListener('click'%2C%20e%20%3D%3E%20%7B%0A%20%20%20%20%20%20authTitle.textContent%20%3D%20'Log%20In'%3B%0A%20%20%20%20%20%20signupForm.style.display%20%3D%20'none'%3B%0A%20%20%20%20%20%20loginFields.style.display%20%3D%20'block'%3B%0A%20%20%20%20%7D)%3B%0A%0A%20%20%20%20%2F%2F%20Sign%20Up%0A%20%20%20%20signupBtn.addEventListener('click'%2C%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20const%20email%20%3D%20document.getElementById('signup-email').value%3B%0A%20%20%20%20%20%20const%20pass%20%20%3D%20document.getElementById('signup-password').value%3B%0A%20%20%20%20%20%20createUserWithEmailAndPassword(auth%2C%20email%2C%20pass)%0A%20%20%20%20%20%20%20%20.then(()%20%3D%3E%20alert('Account%20created!'))%0A%20%20%20%20%20%20%20%20.catch(e%20%3D%3E%20alert('Sign%20up%20error%3A%20'%20%2B%20e.message))%3B%0A%20%20%20%20%7D)%3B%0A%0A%20%20%20%20%2F%2F%20Log%20In%0A%20%20%20%20loginAuthBtn.addEventListener('click'%2C%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20const%20email%20%3D%20document.getElementById('login-email').value%3B%0A%20%20%20%20%20%20const%20pass%20%20%3D%20document.getElementById('login-password').value%3B%0A%20%20%20%20%20%20signInWithEmailAndPassword(auth%2C%20email%2C%20pass)%0A%20%20%20%20%20%20%20%20.then(()%20%3D%3E%20alert('Logged%20in!'))%0A%20%20%20%20%20%20%20%20.catch(e%20%3D%3E%20alert('Login%20error%3A%20'%20%2B%20e.message))%3B%0A%20%20%20%20%7D)%3B%0A%0A%20%20%20%20%2F%2F%20Log%20Out%0A%20%20%20%20logoutBtn.addEventListener('click'%2C%20()%20%3D%3E%20signOut(auth))%3B%0A%0A%20%20%20%20%2F%2F%20Auth%20state%20observer%0A%20%20%20%20onAuthStateChanged(auth%2C%20user%20%3D%3E%20%7B%0A%20%20%20%20%20%20if%20(user)%20%7B%0A%20%20%20%20%20%20%20%20authModal.style.display%20%3D%20'none'%3B%0A%20%20%20%20%20%20%20%20logoutBtn.style.display%20%3D%20'block'%3B%0A%20%20%20%20%20%20%20%20%2F%2F%20Only%20your%20email%20is%20admin%0A%20%20%20%20%20%20%20%20isAdmin%20%3D%20(user.email%20%3D%3D%3D%20'houseofforgottendreams%40yahoo.com')%3B%0A%20%20%20%20%20%20%20%20document.getElementById('admin-panel').style.display%20%3D%20isAdmin%20%3F%20'block'%20%3A%20'none'%3B%0A%20%20%20%20%20%20%20%20document.getElementById('item-form').style.display%20%3D%20isAdmin%20%3F%20'block'%20%3A%20'none'%3B%0A%20%20%20%20%20%20%20%20fetchItems()%3B%0A%20%20%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20logoutBtn.style.display%20%3D%20'none'%3B%0A%20%20%20%20%20%20%20%20isAdmin%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20document.getElementById('admin-panel').style.display%20%3D%20'none'%3B%0A%20%20%20%20%20%20%20%20document.getElementById('item-form').style.display%20%3D%20'none'%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D)%3B%0A%0A%20%20%20%20%2F%2F%20Auction%20rendering%0A%20%20%20%20const%20renderItems%20%3D%20items%20%3D%3E%20%7B%0A%20%20%20%20%20%20const%20container%20%3D%20document.getElementById('auctions-container')%3B%0A%20%20%20%20%20%20container.innerHTML%20%3D%20''%3B%0A%20%20%20%20%20%20items.forEach(item%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20div%20%3D%20document.createElement('div')%3B%0A%20%20%20%20%20%20%20%20div.className%20%3D%20'auction-item'%3B%0A%20%20%20%20%20%20%20%20div.innerHTML%20%3D%20%60%0A%20%20%20%20%20%20%20%20%20%20%24%7BisAdmin%20%3F%20'%3Cbutton%20class%3D%22remove-btn%22%3EX%3C%2Fbutton%3E'%20%3A%20''%7D%0A%20%20%20%20%20%20%20%20%20%20%3Cimg%20src%3D%22%24%7Bitem.img%7D%22%20alt%3D%22%24%7Bitem.title%7D%22%3E%0A%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22auction-item-content%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ch3%3E%24%7Bitem.title%7D%3C%2Fh3%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cp%3E%24%7Bitem.desc%7D%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cp%3EStarting%20bid%3A%20%24%24%7Bitem.price%7D%3C%2Fp%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ca%20class%3D%22btn%22%20href%3D%22https%3A%2F%2Fwww.paypal.com%2Fcgi-bin%2Fwebscr%3Fcmd%3D_xclick%26business%3Dhouseofforgottendreams%40yahoo.com%26item_name%3D%24%7BencodeURIComponent(item.title)%7D%26amount%3D%24%7Bitem.price%7D%26currency_code%3DUSD%22%3EBuy%20Now%3C%2Fa%3E%0A%20%20%20%20%20%20%20%20%20%20%3C%2Fdiv%3E%60%3B%0A%20%20%20%20%20%20%20%20container.appendChild(div)%3B%0A%0A%20%20%20%20%20%20%20%20if%20(isAdmin)%20%7B%0A%20%20%20%20%20%20%20%20%20%20div.querySelector('.remove-btn').addEventListener('click'%2C%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20(confirm('Delete%20this%20item%3F'))%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20remove(ref(db%2C%20%60auctionItems%2F%24%7Bitem.id%7D%60))%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.then(()%20%3D%3E%20div.remove())%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.catch(err%20%3D%3E%20alert('Error%3A%20'%20%2B%20err.message))%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%7D)%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D)%3B%0A%20%20%20%20%7D%3B%0A%0A%20%20%20%20const%20fetchItems%20%3D%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20get(itemsRef).then(snap%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20data%20%3D%20snap.val()%20%7C%7C%20%7B%7D%3B%0A%20%20%20%20%20%20%20%20renderItems(Object.values(data))%3B%0A%20%20%20%20%20%20%7D)%3B%0A%20%20%20%20%7D%3B%0A%0A%20%20%20%20onValue(itemsRef%2C%20()%20%3D%3E%20fetchItems())%3B%0A%0A%20%20%20%20document.addEventListener('DOMContentLoaded'%2C%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20fetchItems()%3B%0A%0A%20%20%20%20%20%20document.getElementById('add-item').onclick%20%3D%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20const%20title%20%3D%20document.getElementById('item-title').value.trim()%3B%0A%20%20%20%20%20%20%20%20const%20desc%20%3D%20document.getElementById('item-desc').value.trim()%3B%0A%20%20%20%20%20%20%20%20const%20price%20%3D%20document.getElementById('item-price').value.trim()%3B%0A%20%20%20%20%20%20%20%20const%20file%20%3D%20document.getElementById('item-img-file').files%5B0%5D%3B%0A%20%20%20%20%20%20%20%20if%20(!title%20%7C%7C%20!desc%20%7C%7C%20!price%20%7C%7C%20!file)%20return%20alert('Fill%20all%20fields%20%2B%20upload%20image')%3B%0A%20%20%20%20%20%20%20%20const%20reader%20%3D%20new%20FileReader()%3B%0A%20%20%20%20%20%20%20%20reader.onload%20%3D%20()%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20const%20id%20%3D%20Date.now()%3B%0A%20%20%20%20%20%20%20%20%20%20set(ref(db%2C%20%60auctionItems%2F%24%7Bid%7D%60)%2C%20%7B%20id%2C%20title%2C%20desc%2C%20price%2C%20img%3A%20reader.result%20%7D)%0A%20%20%20%20%20%20%20%20%20%20%20%20.then(()%20%3D%3E%20fetchItems())%0A%20%20%20%20%20%20%20%20%20%20%20%20.catch(err%20%3D%3E%20alert('Save%20error%3A%20'%20%2B%20err.message))%3B%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20reader.readAsDataURL(file)%3B%0A%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%7D)%3B%0A%20%20%3C%2Fscript%3E%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E%0A
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>House of Forgotten Dreams</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=IM+Fell+English+SC&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'IM Fell English SC', serif;
+      background: #0e0e0e url('https://www.transparenttextures.com/patterns/black-felt.png');
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1a1a1a;
+      color: #e0dede;
+      padding: 1rem 0;
+      position: relative;
+      border-bottom: 2px solid #444;
+      box-shadow: 0 0 10px #000;
+    }
+
+    header h1 {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 2.5rem;
+      color: #a00;
+      text-shadow: 2px 2px 4px #000;
+      margin: 0;
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      gap: 2rem;
+    }
+
+    nav ul li a,
+    nav ul li button {
+      color: #dcdcdc;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover,
+    nav ul li button:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #a00;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('image.png') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f5f5f5;
+      text-shadow: 2px 2px 6px #000;
+      border-bottom: 2px solid #444;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'UnifrakturCook', cursive;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    .auctions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .auction-item {
+      border: 1px solid #444;
+      background: #1b1b1b;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .auction-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px #a00;
+    }
+
+    .auction-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(30%) contrast(1.2);
+    }
+
+    .auction-item-content {
+      padding: 1rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .auction-item-content h3 {
+      color: #e6b800;
+      margin-bottom: 0.5rem;
+      font-family: 'IM Fell English SC', serif;
+    }
+
+    .auction-item-content p {
+      margin: 0.5rem 0;
+      flex: 1;
+      color: #bbb;
+    }
+
+    .auction-item-content .btn {
+      background: #a00;
+      color: #fff;
+      padding: 0.5rem;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.3s ease;
+    }
+
+    .auction-item-content .btn:hover {
+      background: #700;
+    }
+
+    footer {
+      background: #111;
+      color: #777;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      border-top: 2px solid #333;
+    }
+
+    #admin-panel {
+      padding: 1rem;
+      background: #222;
+      text-align: center;
+      display: none;
+    }
+
+    #admin-panel button {
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #a00;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .remove-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: #a00;
+      color: #fff;
+      border: none;
+      padding: 0.3rem 0.5rem;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    a {
+      color: #d6b161;
+    }
+
+    a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #a00;
+    }
+
+    /* Enhanced Contact Section styles remain the same as before if needed */
+
+    /* Firebase Auth Modal Styles */
+    #login {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    #auth-modal {
+      background: #222;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 20px #000;
+      color: #eee;
+      font-family: 'IM Fell English SC', serif;
+      position: relative;
+      width: 320px;
+    }
+    #auth-modal input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      background: #111;
+      border: 1px solid #555;
+      color: #ddd;
+    }
+    #auth-modal button {
+      width: 100%;
+      padding: 0.5rem;
+      background: #a00;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 3px;
+      font-family: inherit;
+    }
+    .toggle-link {
+      color: #d6b161;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    #login-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #eee;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>House of Forgotten Dreams</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#auctions">Auctions</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button id="login-button">Login</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div>
+        <h2>Where Forgotten Treasures Find New Homes</h2>
+        <p>Browse our latest auctions and place your bid today.</p>
+      </div>
+    </section>
+
+    <section id="auctions" class="container">
+      <h2>Current Auctions</h2>
+      <div id="item-form" style="display:none;">
+        <input type="text" id="item-title" placeholder="Title">
+        <input type="text" id="item-desc" placeholder="Description">
+        <input type="text" id="item-price" placeholder="Price">
+        <input type="file" id="item-img-file">
+        <button id="add-item">Add Item</button>
+      </div>
+      <div class="auctions" id="auctions-container"></div>
+    </section>
+
+    <section id="about" class="container">
+      <h2>About Us</h2>
+      <p>House of Forgotten Dreams is a family-owned auction business. We specialize in unique, forgotten treasures waiting for new owners.</p>
+      <p>Follow us on <a href="https://www.facebook.com/profile.php?id=100090733082523" target="_blank">Facebook</a> for the latest auctions.</p>
+    </section>
+
+    <!-- Enhanced Contact Section -->
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:houseofforgottendreams@yahoo.com">houseofforgottendreams@yahoo.com</a></p>
+      <p>Facebook: <a href="https://www.facebook.com/profile.php?id=100090733082523" target="_blank">House of Forgotten Dreams</a></p>
+      <!-- Google Reviews Widget -->
+      <div class="elfsight-app-cc15e35b-2e1d-4a8f-89d9-232bd9ec5fc3" data-elfsight-app-lazy></div>
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 House of Forgotten Dreams. All rights reserved.</p>
+  </footer>
+
+  <div id="admin-panel">
+    <button id="toggle-edit">Toggle Edit Mode</button>
+    <button id="save-changes">Save Changes</button>
+  </div>
+
+  <!-- Firebase Auth Modal -->
+  <div id="login">
+    <div id="auth-modal">
+      <button id="login-close">&times;</button>
+      <h2 id="auth-title">Log In</h2>
+      <div id="login-form-fields">
+        <input type="email" id="login-email" placeholder="Email" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <button id="login-button-auth">Log In</button>
+        <p>New here? <span class="toggle-link" id="show-signup">Sign Up</span></p>
+      </div>
+      <div id="signup-form" style="display:none;">
+        <input type="email" id="signup-email" placeholder="Email" required>
+        <input type="password" id="signup-password" placeholder="Password" required>
+        <button id="signup-button">Sign Up</button>
+        <p>Already have an account? <span class="toggle-link" id="show-login">Log In</span></p>
+      </div>
+      <button id="logout-button" style="display:none; margin-top:1rem;">Log Out</button>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getDatabase, ref, set, get, onValue, remove } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
+      authDomain: "backend-e5b61.firebaseapp.com",
+      databaseURL: "https://backend-e5b61-default-rtdb.firebaseio.com/",
+      projectId: "backend-e5b61",
+      storageBucket: "backend-e5b61.appspot.com",
+      messagingSenderId: "1081485617349",
+      appId: "1:1081485617349:web:073f122bcb6501701068ac",
+      measurementId: "G-XFKGCDJ51G"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const auth = getAuth(app);
+    const itemsRef = ref(db, 'auctionItems');
+    let isAdmin = false;
+
+    // UI elements for Auth
+    const authModal   = document.getElementById('login');
+    const openModal   = document.getElementById('login-button');
+    const closeModal  = document.getElementById('login-close');
+    const showSignup  = document.getElementById('show-signup');
+    const showLogin   = document.getElementById('show-login');
+    const loginFields = document.getElementById('login-form-fields');
+    const signupForm  = document.getElementById('signup-form');
+    const authTitle   = document.getElementById('auth-title');
+    const signupBtn   = document.getElementById('signup-button');
+    const loginAuthBtn= document.getElementById('login-button-auth');
+    const logoutBtn   = document.getElementById('logout-button');
+
+    // Toggle modal display
+    openModal.addEventListener('click', () => authModal.style.display = 'flex');
+    closeModal.addEventListener('click', () => authModal.style.display = 'none');
+
+    // Toggle between login and signup forms
+    showSignup.addEventListener('click', e => {
+      authTitle.textContent = 'Sign Up';
+      loginFields.style.display = 'none';
+      signupForm.style.display = 'block';
+    });
+    showLogin.addEventListener('click', e => {
+      authTitle.textContent = 'Log In';
+      signupForm.style.display = 'none';
+      loginFields.style.display = 'block';
+    });
+
+    // Sign Up
+    signupBtn.addEventListener('click', () => {
+      const email = document.getElementById('signup-email').value;
+      const pass  = document.getElementById('signup-password').value;
+      createUserWithEmailAndPassword(auth, email, pass)
+        .then(() => alert('Account created!'))
+        .catch(e => alert('Sign up error: ' + e.message));
+    });
+
+    // Log In
+    loginAuthBtn.addEventListener('click', () => {
+      const email = document.getElementById('login-email').value;
+      const pass  = document.getElementById('login-password').value;
+      signInWithEmailAndPassword(auth, email, pass)
+        .then(() => alert('Logged in!'))
+        .catch(e => alert('Login error: ' + e.message));
+    });
+
+    // Log Out
+    logoutBtn.addEventListener('click', () => signOut(auth));
+
+    // Auth state observer
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        authModal.style.display = 'none';
+        logoutBtn.style.display = 'block';
+        // Only your email is admin
+        isAdmin = (user.email === 'houseofforgottendreams@yahoo.com');
+        document.getElementById('admin-panel').style.display = isAdmin ? 'block' : 'none';
+        document.getElementById('item-form').style.display = isAdmin ? 'block' : 'none';
+        fetchItems();
+      } else {
+        logoutBtn.style.display = 'none';
+        isAdmin = false;
+        document.getElementById('admin-panel').style.display = 'none';
+        document.getElementById('item-form').style.display = 'none';
+      }
+    });
+
+    // Auction rendering
+    const renderItems = items => {
+      const container = document.getElementById('auctions-container');
+      container.innerHTML = '';
+      items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'auction-item';
+        div.innerHTML = `
+          ${isAdmin ? '<button class="remove-btn">X</button>' : ''}
+          <img src="${item.img}" alt="${item.title}">
+          <div class="auction-item-content">
+            <h3>${item.title}</h3>
+            <p>${item.desc}</p>
+            <p>Starting bid: $${item.price}</p>
+            <a class="btn" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=houseofforgottendreams@yahoo.com&item_name=${encodeURIComponent(item.title)}&amount=${item.price}&currency_code=USD">Buy Now</a>
+          </div>`;
+        container.appendChild(div);
+
+        if (isAdmin) {
+          div.querySelector('.remove-btn').addEventListener('click', () => {
+            if (confirm('Delete this item?')) {
+              remove(ref(db, `auctionItems/${item.id}`))
+                .then(() => div.remove())
+                .catch(err => alert('Error: ' + err.message));
+            }
+          });
+        }
+      });
+    };
+
+    const fetchItems = () => {
+      get(itemsRef).then(snap => {
+        const data = snap.val() || {};
+        renderItems(Object.values(data));
+      });
+    };
+
+    onValue(itemsRef, () => fetchItems());
+
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchItems();
+
+      document.getElementById('add-item').onclick = () => {
+        const title = document.getElementById('item-title').value.trim();
+        const desc = document.getElementById('item-desc').value.trim();
+        const price = document.getElementById('item-price').value.trim();
+        const file = document.getElementById('item-img-file').files[0];
+        if (!title || !desc || !price || !file) return alert('Fill all fields + upload image');
+        const reader = new FileReader();
+        reader.onload = () => {
+          const id = Date.now();
+          set(ref(db, `auctionItems/${id}`), { id, title, desc, price, img: reader.result })
+            .then(() => fetchItems())
+            .catch(err => alert('Save error: ' + err.message));
+        };
+        reader.readAsDataURL(file);
+      };
+    });
+  </script>
+</body>
+</html>
