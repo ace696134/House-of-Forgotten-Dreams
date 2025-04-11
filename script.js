@@ -61,10 +61,11 @@ document.getElementById("signup-button")?.addEventListener("click", (e) => {
   e.preventDefault();
   const email = document.getElementById("signup-email").value;
   const password = document.getElementById("signup-password").value;
+
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
       localStorage.setItem("userLoggedIn", "true");
-      window.location.href = "https://ace696134.github.io/index.html";
+      window.location.href = "https://ace696134.github.io/index.html"; // ✅ Redirect after signup
     })
     .catch(err => alert(err.message));
 });
