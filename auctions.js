@@ -55,16 +55,21 @@ function fetchAuctions() {
 function renderAuctions(list) {
   container.innerHTML = '';
   list.forEach(item => {
+    const user = auth.currentUser;
+    const isAdmin = user && user.email === 'houseofforgottendreams@yahoo.com';
+
     container.innerHTML += `
       <div class="auction-card" style="border:1px solid #ddd; padding:12px; border-radius:8px; margin-bottom:16px;">
         <img src="${item.imageBase64}" alt="${item.title}" style="max-width:100%; border-radius:4px;"/>
         <h3>${item.title}</h3>
         <p>Current Bid: $${item.currentBid}</p>
         <div class="timer" id="timer-${item.id}" style="font-weight:bold;"></div>
+        ${isAdmin ? `<button onclick="deleteAuction('${item.id}')" style="margin-top:10px; background:#c00; color:white; border:none; padding:6px 10px; border-radius:4px;">Delete</button>` : ''}
       </div>`;
   });
   startAllTimers();
 }
+
 
 // ——— SEARCH & FILTER ———
 function applyFilters() {
