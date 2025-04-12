@@ -22,29 +22,45 @@ onAuthStateChanged(auth, user => {
 });
 
 // Add item to Firestore
-const addItemButton = document.getElementById("add-item");
-if (addItemButton) {
-  addItemButton.addEventListener("click", async () => {
-    const title = document.getElementById("item-title").value;
-    const desc = document.getElementById("item-desc").value;
-    const price = document.getElementById("item-price").value;
+document.getElementById("add-item")?.addEventListener("click", async () => {
+  const title = document.getElementById("item-title").value;
+  const description = document.getElementById("item-desc").value;
+  const startingBid = document.getElementById("item-price").value;
+  const file = document.getElementById("item-img-file").files[0];
 
-    const item = {
-      title,
-      desc,
-      price,
-      createdAt: new Date()
-    };
+  if (!file || !title || !description || !startingBid) {
+    alert("Please fill all fields and select an image.");
+    return;
+  }
+
+  // Convert image to base64
+  const reader = new FileReader();
+  reader.onloadend = async () => {
+    const base64Image = reader.result;
 
     try {
-      await addDoc(collection(db, "auctions"), item);
+      await addDoc(collection(db, "auctions"), {
+        title,
+        description,
+        startingBid,
+        imageUrl: base64Image,
+        createdAt: serverTimestamp()
+      });
+
       alert("Item added!");
-      location.reload();
+      document.getElementById("item-title").value = "";
+      document.getElementById("item-desc").value = "";
+      document.getElementById("item-price").value = "";
+      document.getElementById("item-img-file").value = "";
     } catch (error) {
       console.error("Error adding item:", error);
+      alert("Failed to add item.");
     }
-  });
-}
+  };
+
+  reader.readAsDataURL(file);
+});
+
 
 // Display items
 async function displayItems() {
