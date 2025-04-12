@@ -18,6 +18,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><button id="login-button">Login</button></li>
+        <li><button id="logout-button" style="display:none;">Logout</button></li>
       </ul>
     </nav>
   </header>
@@ -26,16 +27,18 @@
     <section id="auctions" class="container">
       <h2>Current Auctions</h2>
 
-      <!-- ───── Admin “Create Auction” Form ───── -->
-      <div id="item-form" style="margin:20px; border:1px solid #ccc; padding:16px; border-radius:8px;">
+      <!-- Create Auction Form (hidden unless signed in) -->
+      <div id="item-form" style="display:none; margin:20px; border:1px solid #ccc; padding:16px; border-radius:8px;">
         <h3>Create New Auction</h3>
         <input type="text" id="titleInput" placeholder="Item Title" /><br/>
         <input type="number" id="startingBidInput" placeholder="Starting Bid ($)" /><br/>
         <input type="datetime-local" id="endsAtInput" /><br/>
+        <!-- Image file input -->
+        <input type="file" id="itemImgFile" accept="image/*" /><br/>
         <button id="saveAuctionBtn">Create Auction</button>
       </div>
 
-      <!-- ───── Search & Filter Bar ───── -->
+      <!-- Search & Filter Bar -->
       <div class="search-filter" style="margin:20px;">
         <input type="text" id="searchInput" placeholder="🔍 Search items…" />
         <select id="filterSelect">
@@ -46,9 +49,9 @@
         </select>
       </div>
 
-      <!-- ───── Auctions Grid ───── -->
+      <!-- Auctions Grid -->
       <div class="auctions" id="auctionsContainer">
-        <!-- Auction items will be dynamically inserted here by auctions.js -->
+        <!-- Auction items will be injected here -->
       </div>
     </section>
   </main>
@@ -57,8 +60,9 @@
     <p>&copy; 2025 House of Forgotten Dreams. All rights reserved.</p>
   </footer>
 
-  <!-- Firebase & App Scripts -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
   <script src="firebase-config.js"></script>
   <script src="auctions.js"></script>
