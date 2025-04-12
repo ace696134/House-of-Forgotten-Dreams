@@ -84,26 +84,42 @@ function startAllTimers() {
   auctions.forEach(item => startTimer(item.id, item.endsAt));
 }
 
-// Admin: create auction
+// ——— ADMIN: CREATE AUCTION (Base64 image) ———
 saveBtn.addEventListener('click', () => {
   const title = titleInput.value.trim();
-  const startingBid = Number(startingBidInput.value);
-  const endsAt = new Date(endsAtInput.value).getTime();
+  const bid   = Number(startingBid.value);
+  const ends  = new Date(endsAtInput.value).getTime();
+  const file  = imgFileInput.files[0];
 
-  if (!title || !startingBid || !endsAt) {
-    return alert('Please fill in all fields with valid values.');
+  if (!title || !bid || !ends || !file) {
+    return alert('Please fill all fields and select an image.');
   }
 
-  db.collection('auctions').add({ title, currentBid: startingBid, endsAt })
+  // Read file as Base64
+  const reader = new FileReader();
+  reader.onload = () => {
+    const base64Image = reader.result; // data:image/…;base64,…
+
+    // Save to Firestore
+    db.collection('auctions').add({
+      title,
+      currentBid: bid,
+      endsAt: ends,
+      imageBase64: base64Image
+    })
     .then(() => {
       alert('Auction created!');
       titleInput.value = '';
-      startingBidInput.value = '';
+      startingBid.value = '';
       endsAtInput.value = '';
-      fetchAuctions();  // refresh
+      imgFileInput.value = '';
+      fetchAuctions();
     })
     .catch(err => alert('Error: ' + err.message));
+  };
+  reader.readAsDataURL(file);
 });
+
 
 // Event listeners
 searchInput.addEventListener('input', applyFilters);
