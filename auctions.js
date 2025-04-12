@@ -1,47 +1,26 @@
-import { ADMIN_EMAIL } from "./script.js";
+document.addEventListener("DOMContentLoaded", () => {
+  const auctionsContainer = document.getElementById("auctions-container");
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-const auth = firebase.auth();
+  // Load auctions from Firestore
+  firebase.firestore().collection("auctions").get().then((querySnapshot) => {
+    if (querySnapshot.empty) {
+      auctionsContainer.innerHTML = "<p>No auctions available at the moment.</p>";
+      return;
+    }
 
-// 1) Render all auction cards, each with a hidden .delete-button
-db.collection("auctions").get().then(snapshot => {
-  snapshot.forEach(doc => {
-    const data = doc.data();
-    const card = document.createElement("div");
-    card.className = "auction-card";
-
-    card.innerHTML = `
-      <img src="${data.image}" alt="${data.title}" />
-      <h3>${data.title}</h3>
-      <p>${data.description}</p>
-      <p>Current bid: $${data.currentBid}</p>
-      <button class="bid-button">Bid</button>
-      <button class="delete-button" style="display:none">Delete</button>
-    `;
-
-    // Bid handler
-    card.querySelector(".bid-button")
-        .addEventListener("click", () => { /* your bid logic */ });
-
-    // Delete handler
-    card.querySelector(".delete-button")
-        .addEventListener("click", () => {
-          db.collection("auctions").doc(doc.id).delete();
-        });
-
-    document.getElementById("auctions-container")
-            .appendChild(card);
-  });
-});
-
-// 2) Once auth state settles, toggle login/logout & all delete-buttons
-auth.onAuthStateChanged(user => {
-  document.getElementById("login-link").style.display = user ? "none" : "block";
-  document.getElementById("logout-button").style.display = user ? "block" : "none";
-
-  document.querySelectorAll(".delete-button").forEach(btn => {
-    btn.style.display =
-      (user && user.email === ADMIN_EMAIL) ? "block" : "none";
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      const div = document.createElement("div");
+      div.className = "auction-item";
+      div.innerHTML = `
+        <h3>${data.title}</h3>
+        <p>${data.description}</p>
+        <p><strong>Starting bid:</strong> $${data.startingBid}</p>
+      `;
+      auctionsContainer.appendChild(div);
+    });
+  }).catch((error) => {
+    auctionsContainer.innerHTML = "<p>Error loading auctions.</p>";
+    console.error("Error fetching auctions:", error);
   });
 });
