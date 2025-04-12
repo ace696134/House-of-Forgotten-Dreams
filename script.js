@@ -42,20 +42,18 @@ toggleToLogin?.addEventListener("click", () => {
   signupForm.style.display = "none";
 });
 
-document.getElementById("login-button-auth")?.addEventListener("click", (e) => {
-  e.preventDefault();
+document.getElementById("login-form")?.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevents the default form submission
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
 
   signInWithEmailAndPassword(auth, email, password)
     .then(() => {
       localStorage.setItem("userLoggedIn", "true");
-      loginModal.style.display = "none"; // Hide modal if on a modal-based page
-      window.location.href = "https://ace696134.github.io/index.html"; // Redirect to home
+      window.location.href = "https://ace696134.github.io/index.html"; // Redirect to homepage
     })
     .catch(err => alert(err.message));
 });
-
 
 document.getElementById("signup-button")?.addEventListener("click", (e) => {
   e.preventDefault();
@@ -65,7 +63,7 @@ document.getElementById("signup-button")?.addEventListener("click", (e) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
       localStorage.setItem("userLoggedIn", "true");
-      window.location.href = "https://ace696134.github.io/index.html"; // ✅ Redirect after signup
+      window.location.href = "https://ace696134.github.io/index.html";
     })
     .catch(err => alert(err.message));
 });
