@@ -10,3 +10,5 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+console.log("Firebase project ID:", firebase.app().options.projectId);
