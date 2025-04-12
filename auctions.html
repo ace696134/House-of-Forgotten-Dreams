@@ -2,149 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Auctions | House of Forgotten Dreams</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    body {
-      background-color: #000;
-      color: #f5deb3;
-      font-family: 'Cinzel', serif;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
-
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-    }
-
-    .filters input,
-    .filters select {
-      padding: 10px;
-      background-color: #1a1a1a;
-      border: 1px solid #444;
-      color: #f5deb3;
-      border-radius: 6px;
-    }
-
-    .auction-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .auction-card {
-      background-color: #111;
-      border: 1px solid #333;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
-    }
-
-    .auction-title {
-      font-size: 1.25rem;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .auction-desc {
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>House of Forgotten Dreams</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="auctions.html">Auctions</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#" id="auth-link">Login</a>
+    </nav>
+  </header>
 
-  <h1>Current Auctions</h1>
-
-  <div class="filters">
-    <input type="text" id="searchInput" placeholder="Search auctions...">
-    <select id="categoryFilter" title="Select a category">
-      <option value="">All Categories</option>
-      <option value="Art">Art</option>
-      <option value="Books">Books</option>
-      <option value="Collectibles">Collectibles</option>
-    </select>
-  </div>
-
-  <div class="auction-container" id="auctionList"></div>
+  <main>
+    <h2>Current Auctions</h2>
+    <div id="admin-section" class="hidden">
+      <p><strong>Admin Panel:</strong> You are an administrator.</p>
+      <form id="listing-form">
+        <input type="text" id="title" placeholder="Title" required />
+        <textarea id="description" placeholder="Description" required></textarea>
+        <input type="number" id="startingBid" placeholder="Starting Bid" required />
+        <button type="submit">Add Listing</button>
+        <p id="listing-message"></p>
+      </form>
+    </div>
+    <div id="auctions-container"></div>
+  </main>
 
   <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
 
-  <!-- Firebase Config -->
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
-      authDomain: "backend-e5b61.firebaseapp.com",
-      projectId: "backend-e5b61",
-      storageBucket: "backend-e5b61.appspot.com",
-      messagingSenderId: "1081485617349",
-      appId: "1:1081485617349:web:073f122bcb6501701068ac",
-      measurementId: "G-XFKGCDJ51G"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-  </script>
-
-  <!-- Auction Logic -->
-  <script>
-    const auctionList = document.getElementById('auctionList');
-    const searchInput = document.getElementById('searchInput');
-    const categoryFilter = document.getElementById('categoryFilter');
-    let allAuctions = [];
-
-    function renderAuctions(filtered) {
-      auctionList.innerHTML = '';
-      if (filtered.length === 0) {
-        auctionList.innerHTML = '<p>No auctions found.</p>';
-        return;
-      }
-
-      filtered.forEach(data => {
-        const card = document.createElement('div');
-        card.className = 'auction-card';
-        card.innerHTML = `
-          <div class="auction-title">${data.title}</div>
-          <div class="auction-desc">${data.description}</div>
-        `;
-        auctionList.appendChild(card);
-      });
-    }
-
-    function filterAuctions() {
-      const keyword = searchInput.value.toLowerCase();
-      const category = categoryFilter.value;
-      const filtered = allAuctions.filter(item => {
-        const matchKeyword = item.title.toLowerCase().includes(keyword) || item.description.toLowerCase().includes(keyword);
-        const matchCategory = category ? item.category === category : true;
-        return matchKeyword && matchCategory;
-      });
-      renderAuctions(filtered);
-    }
-
-    // Fetch and display auctions
-    db.collection("auctions").get().then(snapshot => {
-      allAuctions = snapshot.docs.map(doc => doc.data());
-      renderAuctions(allAuctions);
-    });
-
-    searchInput.addEventListener('input', filterAuctions);
-    categoryFilter.addEventListener('change', filterAuctions);
-  </script>
+  <!-- Scripts -->
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+  <script src="script.js"></script>
+  <script src="auctions.js"></script>
 </body>
 </html>

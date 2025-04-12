@@ -1,30 +1,18 @@
-
-// Firebase configuration (imported from existing config file)
-firebase.initializeApp(firebaseConfig);
-
-const loginBtn = document.getElementById("loginBtn");
-const logoutBtn = document.getElementById("logoutBtn");
-
-if (loginBtn) {
-  loginBtn.addEventListener("click", () => {
-    window.location.href = "login.html";
-  });
-}
-
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", () => {
-    firebase.auth().signOut().then(() => {
-      window.location.reload();
-    });
-  });
-}
-
 firebase.auth().onAuthStateChanged(user => {
+  const authLink = document.getElementById('auth-link');
+  const adminSection = document.getElementById('admin-section');
   if (user) {
-    if (loginBtn) loginBtn.style.display = "none";
-    if (logoutBtn) logoutBtn.style.display = "inline-block";
+    authLink.textContent = "Logout";
+    authLink.href = "#";
+    authLink.addEventListener("click", e => {
+      e.preventDefault();
+      firebase.auth().signOut().then(() => location.reload());
+    });
+    if (user.email === "admin@example.com") {
+      adminSection?.classList.remove('hidden');
+    }
   } else {
-    if (loginBtn) loginBtn.style.display = "inline-block";
-    if (logoutBtn) logoutBtn.style.display = "none";
+    authLink.textContent = "Login";
+    authLink.href = "login.html";
   }
 });
