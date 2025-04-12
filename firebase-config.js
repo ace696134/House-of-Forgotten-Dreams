@@ -1,7 +1,12 @@
+
+// firebase-config.js
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
   authDomain: "backend-e5b61.firebaseapp.com",
-  databaseURL: "https://backend-e5b61-default-rtdb.firebaseio.com",
   projectId: "backend-e5b61",
   storageBucket: "backend-e5b61.appspot.com",
   messagingSenderId: "1081485617349",
@@ -9,6 +14,8 @@ const firebaseConfig = {
   measurementId: "G-XFKGCDJ51G"
 };
 
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-console.log("Firebase project ID:", firebase.app().options.projectId);
+export { auth, db };
