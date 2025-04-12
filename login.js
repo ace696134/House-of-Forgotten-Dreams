@@ -12,7 +12,7 @@ try {
   const userCredential = await signInWithEmailAndPassword(auth, email, password);
   document.getElementById('login-message').textContent = "Login successful!";
   
-  // Redirect after login
+  // Redirect to homepage
   window.location.href = 'index.html';
 } catch (error) {
   document.getElementById('login-message').textContent = "Login failed: " + error.message;
