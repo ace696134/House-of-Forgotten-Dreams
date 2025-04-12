@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const auctionsContainer = document.getElementById("auctions-container");
 
-  // Load auctions from Firestore
   firebase.firestore().collection("auctions").get().then((querySnapshot) => {
     if (querySnapshot.empty) {
       auctionsContainer.innerHTML = "<p>No auctions available at the moment.</p>";

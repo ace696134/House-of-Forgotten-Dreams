@@ -2,44 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <title>Auctions – House of Forgotten Dreams</title>
-  <!-- make sure this file lives next to auctions.html -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auctions | House of Forgotten Dreams</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>House of Forgotten Dreams</h1>
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="auctions.html">Auctions</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a id="login-link" href="login.html">Login</a></li>
-        <li><button id="logout-button" style="display:none">Logout</button></li>
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="auctions.html">Auctions</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#" id="auth-link">Login</a>
     </nav>
   </header>
 
   <main>
     <h2>Current Auctions</h2>
-    <div id="auctions-container"></div>
+    <div id="admin-section" style="display:none;">
+      <p><strong>Admin Panel:</strong> You are an administrator.</p>
+    </div>
+    <div id="auctions-container">
+    </div>
   </main>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-  
-  <!-- Your shared config & auth logic -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+
   <script src="firebase-config.js"></script>
   <script src="auth.js"></script>
-  
-  <!-- Admin/email constant & auction logic -->
-  <script type="module" src="script.js"></script>
-  <script type="module" src="auctions.js"></script>
+  <script src="script.js"></script>
+  <script src="auctions.js"></script>
 </body>
 </html>
