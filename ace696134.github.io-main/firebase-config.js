@@ -1,4 +1,3 @@
-
 // firebase-config.js
 const firebaseConfig = {
   apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
@@ -10,6 +9,7 @@ const firebaseConfig = {
   measurementId: "G-XFKGCDJ51G"
 };
 
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();

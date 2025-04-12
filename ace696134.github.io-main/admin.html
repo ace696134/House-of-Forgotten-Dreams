@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Admin</title></head>
+<body>
+  <h2>Create New Auction</h2>
+  <label>Title:</label><input id="titleInput" type="text" /><br/>
+  <label>Starting Bid ($):</label><input id="startingBidInput" type="number" /><br/>
+  <label>Ends At:</label><input id="endsAtInput" type="datetime-local" /><br/>
+  <button id="saveAuctionBtn">Save Auction</button>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
