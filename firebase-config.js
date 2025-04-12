@@ -24,4 +24,4 @@ initializeAppCheck(app, {
   isTokenAutoRefreshEnabled: true
 });
 
-export { auth, db };
+export { auth, db, firebaseConfig };
