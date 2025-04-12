@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - House of Forgotten Dreams</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
-    <h2>Login</h2>
-    <form id="login-form">
-      <input type="email" id="email" placeholder="Email" required />
-      <input type="password" id="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
-    <p id="login-message"></p>
-  </div>
+// login.js
+import { auth } from './firebase-config.js';
+import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
 
-  <!-- Load login logic using Firebase Modular SDK -->
-  <script type="module" src="login.js"></script>
-</body>
-</html>
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    document.getElementById('login-message').textContent = "Login successful!";
+    // Optionally redirect after login
+    window.location.href = 'dashboard.html';
+  } catch (error) {
+    document.getElementById('login-message').textContent = "Login failed: " + error.message;
+  }
+});
