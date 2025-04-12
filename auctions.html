@@ -9,8 +9,6 @@
 </head>
 
 <body>
-</div>
-
   <header>
     <h1>House of Forgotten Dreams</h1>
     <nav>
@@ -27,18 +25,31 @@
   <main>
     <section id="auctions" class="container">
       <h2>Current Auctions</h2>
-      <div id="item-form" style="display:none;">
-        <input type="text" id="item-title" placeholder="Title">
-        <input type="text" id="item-desc" placeholder="Description">
-        <input type="text" id="item-price" placeholder="Price">
-        <input type="file" id="item-img-file">
-        <button id="add-item">Add Item</button>
+
+      <!-- ───── Admin “Create Auction” Form ───── -->
+      <div id="item-form" style="margin:20px; border:1px solid #ccc; padding:16px; border-radius:8px;">
+        <h3>Create New Auction</h3>
+        <input type="text" id="titleInput" placeholder="Item Title" /><br/>
+        <input type="number" id="startingBidInput" placeholder="Starting Bid ($)" /><br/>
+        <input type="datetime-local" id="endsAtInput" /><br/>
+        <button id="saveAuctionBtn">Create Auction</button>
       </div>
-      
-    <div class="auctions" id="auctions-container">
-      <!-- Auction items will be dynamically inserted here by script.js -->
-    </div>
-    
+
+      <!-- ───── Search & Filter Bar ───── -->
+      <div class="search-filter" style="margin:20px;">
+        <input type="text" id="searchInput" placeholder="🔍 Search items…" />
+        <select id="filterSelect">
+          <option value="all">All</option>
+          <option value="ending-soon">Ending Soon</option>
+          <option value="price-low-high">Price: Low → High</option>
+          <option value="price-high-low">Price: High → Low</option>
+        </select>
+      </div>
+
+      <!-- ───── Auctions Grid ───── -->
+      <div class="auctions" id="auctionsContainer">
+        <!-- Auction items will be dynamically inserted here by auctions.js -->
+      </div>
     </section>
   </main>
 
@@ -46,15 +57,7 @@
     <p>&copy; 2025 House of Forgotten Dreams. All rights reserved.</p>
   </footer>
 
-  <script type="module" src="firebase-config.js"></script>
-  <script type="module" src="script.js"></script>
-
-<!-- Firebase Auth Scripts -->
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
-<script src="firebase-config.js"></script>
-<script src="auth.js"></script>
-
+  <!-- Firebase & App Scripts -->
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
   <script src="firebase-config.js"></script>
