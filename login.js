@@ -13,7 +13,7 @@ try {
   document.getElementById('login-message').textContent = "Login successful!";
   
   // Redirect after login
-  window.location.href = 'dashboard.html';
+  window.location.href = 'index.html';
 } catch (error) {
   document.getElementById('login-message').textContent = "Login failed: " + error.message;
 }
