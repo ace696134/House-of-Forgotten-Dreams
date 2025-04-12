@@ -1,32 +1,57 @@
 // auctions.js
 
-// Initialize Firestore
-const db = firebase.firestore();
+// Initialize Firebase services
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db   = firebase.firestore();
 
-// State
+// DOM elements
+const loginBtn     = document.getElementById('login-button');
+const logoutBtn    = document.getElementById('logout-button');
+const itemForm     = document.getElementById('item-form');
+const titleInput   = document.getElementById('titleInput');
+const startingBid  = document.getElementById('startingBidInput');
+const endsAtInput  = document.getElementById('endsAtInput');
+const imgFileInput = document.getElementById('itemImgFile');
+const saveBtn      = document.getElementById('saveAuctionBtn');
+const searchInput  = document.getElementById('searchInput');
+const filterSelect = document.getElementById('filterSelect');
+const container    = document.getElementById('auctionsContainer');
+
 let auctions = [];
 
-// DOM refs
-const titleInput       = document.getElementById('titleInput');
-const startingBidInput = document.getElementById('startingBidInput');
-const endsAtInput      = document.getElementById('endsAtInput');
-const saveBtn          = document.getElementById('saveAuctionBtn');
+// ——— AUTH HANDLING ———
+loginBtn.addEventListener('click', () => {
+  auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    .catch(err => console.error('Login error', err));
+});
 
-const searchInput      = document.getElementById('searchInput');
-const filterSelect     = document.getElementById('filterSelect');
-const container        = document.getElementById('auctionsContainer');
+logoutBtn.addEventListener('click', () => {
+  auth.signOut().catch(err => console.error('Logout error', err));
+});
 
-// Fetch & render
+auth.onAuthStateChanged(user => {
+  if (user) {
+    loginBtn.style.display  = 'none';
+    logoutBtn.style.display = 'inline-block';
+    itemForm.style.display  = 'block';
+  } else {
+    loginBtn.style.display  = 'inline-block';
+    logoutBtn.style.display = 'none';
+    itemForm.style.display  = 'none';
+  }
+});
+
+// ——— FETCH & RENDER ———
 function fetchAuctions() {
-  db.collection('auctions').orderBy('endsAt', 'asc')
-    .get()
-    .then(snapshot => {
-      auctions = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  db.collection('auctions').orderBy('endsAt', 'asc').get()
+    .then(snap => {
+      auctions = snap.docs.map(d => ({ id: d.id, ...d.data() }));
       applyFilters();
-    });
+    })
+    .catch(err => console.error('Fetch auctions error', err));
 }
 
-// Render auctions
 function renderAuctions(list) {
   container.innerHTML = '';
   list.forEach(item => {
@@ -41,13 +66,11 @@ function renderAuctions(list) {
   startAllTimers();
 }
 
-
-// Filters
+// ——— SEARCH & FILTER ———
 function applyFilters() {
   let filtered = auctions.filter(a =>
     a.title.toLowerCase().includes(searchInput.value.toLowerCase())
   );
-
   switch (filterSelect.value) {
     case 'ending-soon':
       filtered.sort((a,b) => a.endsAt - b.endsAt);
@@ -59,11 +82,13 @@ function applyFilters() {
       filtered.sort((a,b) => b.currentBid - a.currentBid);
       break;
   }
-
   renderAuctions(filtered);
 }
 
-// Countdown timers
+searchInput.addEventListener('input', applyFilters);
+filterSelect.addEventListener('change', applyFilters);
+
+// ——— COUNTDOWN TIMERS ———
 function startTimer(id, endTimestamp) {
   const el = document.getElementById(`timer-${id}`);
   const update = () => {
@@ -97,12 +122,9 @@ saveBtn.addEventListener('click', () => {
     return alert('Please fill all fields and select an image.');
   }
 
-  // Read file as Base64
   const reader = new FileReader();
   reader.onload = () => {
-    const base64Image = reader.result; // data:image/…;base64,…
-
-    // Save to Firestore
+    const base64Image = reader.result;
     db.collection('auctions').add({
       title,
       currentBid: bid,
@@ -117,15 +139,13 @@ saveBtn.addEventListener('click', () => {
       imgFileInput.value = '';
       fetchAuctions();
     })
-    .catch(err => alert('Error: ' + err.message));
+    .catch(err => {
+      console.error('Create auction error', err);
+      alert('Error creating auction: ' + err.message);
+    });
   };
   reader.readAsDataURL(file);
 });
 
-
-// Event listeners
-searchInput.addEventListener('input', applyFilters);
-filterSelect.addEventListener('change', applyFilters);
-
-// Initialize
+// ——— INITIALIZE ———
 fetchAuctions();
