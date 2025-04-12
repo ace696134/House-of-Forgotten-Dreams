@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  >
+  />
   <title>Auctions – House of Forgotten Dreams</title>
-
-  <!-- Correct CSS filename -->
-  <link rel="stylesheet" href="style.css">
+  <!-- make sure this file lives next to auctions.html -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- === Shared Header/Nav (copy from index.html) === -->
   <header>
     <h1>House of Forgotten Dreams</h1>
     <nav>
@@ -23,18 +20,14 @@
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a id="login-link" href="login.html">Login</a></li>
-        <li><button id="logout-button" style="display: none;">Logout</button></li>
+        <li><button id="logout-button" style="display:none">Logout</button></li>
       </ul>
     </nav>
   </header>
-  <!-- === End Shared Header/Nav === -->
 
   <main>
     <h2>Current Auctions</h2>
-    <!-- Your filters/search UI here -->
-    <div id="auctions-container">
-      <!-- Auction cards will be injected here by auctions.js -->
-    </div>
+    <div id="auctions-container"></div>
   </main>
 
   <!-- Firebase SDKs -->
@@ -45,8 +38,8 @@
   <script src="firebase-config.js"></script>
   <script src="auth.js"></script>
   
-  <!-- Main app scripts: admin detection & auction rendering -->
+  <!-- Admin/email constant & auction logic -->
   <script type="module" src="script.js"></script>
-  <script src="auctions.js"></script>
+  <script type="module" src="auctions.js"></script>
 </body>
 </html>
