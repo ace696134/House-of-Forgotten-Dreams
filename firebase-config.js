@@ -1,6 +1,9 @@
 // firebase-config.js
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js';
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-app-check.js';
 
-// Firebase config for classic (compat) SDK
 const firebaseConfig = {
   apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
   authDomain: "backend-e5b61.firebaseapp.com",
@@ -11,11 +14,13 @@ const firebaseConfig = {
   measurementId: "G-XFKGCDJ51G"
 };
 
-// Initialize Firebase (global firebase object)
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Enable reCAPTCHA App Check
-firebase.appCheck().activate(
-  '6LcEHxUrAAAAAKsdofqix1KIi0SPkMFerJIuwlfk',
-  true // Enable automatic token refresh
-);
+initializeAppCheck(app, {
+  provider: new ReCaptchaEnterpriseProvider('6LcEHxUrAAAAAKsdofqix1KIi0SPkMFerJIuwlfk'),
+  isTokenAutoRefreshEnabled: true
+});
+
+export { auth, db, firebaseConfig };
