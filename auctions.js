@@ -1,39 +1,47 @@
+import { ADMIN_EMAIL } from "./script.js";
 
-function fetchAuctions() {
-  db.collection('auctions').orderBy('endsAt', 'asc').get()
-    .then(snap => {
-      const auctions = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      renderAuctionList(auctions);
-    })
-    .catch(err => console.error('Fetch auctions error', err));
-}
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
 
-function renderAuctionList(auctions) {
-  const container = document.getElementById("auction-list");
-  if (!container) return;
-  container.innerHTML = ""; // Clear previous listings
-
-  auctions.forEach(auction => {
-    const title = auction.title || "Untitled Auction";
-    const description = auction.description || "No description available.";
-    const imageUrl = auction.imageUrl || "https://via.placeholder.com/300x200?text=No+Image";
-
+// 1) Render all auction cards, each with a hidden .delete-button
+db.collection("auctions").get().then(snapshot => {
+  snapshot.forEach(doc => {
+    const data = doc.data();
     const card = document.createElement("div");
     card.className = "auction-card";
-    card.innerHTML = `
-      <img src="${imageUrl}" alt="${title}" class="auction-image">
-      <h3>${title}</h3>
-      <p>${description}</p>
-    `;
-    container.appendChild(card);
-  });
-}
 
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    console.log("User is logged in:", user.email);
-    fetchAuctions();
-  } else {
-    console.log("No user logged in");
-  }
+    card.innerHTML = `
+      <img src="${data.image}" alt="${data.title}" />
+      <h3>${data.title}</h3>
+      <p>${data.description}</p>
+      <p>Current bid: $${data.currentBid}</p>
+      <button class="bid-button">Bid</button>
+      <button class="delete-button" style="display:none">Delete</button>
+    `;
+
+    // Bid handler
+    card.querySelector(".bid-button")
+        .addEventListener("click", () => { /* your bid logic */ });
+
+    // Delete handler
+    card.querySelector(".delete-button")
+        .addEventListener("click", () => {
+          db.collection("auctions").doc(doc.id).delete();
+        });
+
+    document.getElementById("auctions-container")
+            .appendChild(card);
+  });
+});
+
+// 2) Once auth state settles, toggle login/logout & all delete-buttons
+auth.onAuthStateChanged(user => {
+  document.getElementById("login-link").style.display = user ? "none" : "block";
+  document.getElementById("logout-button").style.display = user ? "block" : "none";
+
+  document.querySelectorAll(".delete-button").forEach(btn => {
+    btn.style.display =
+      (user && user.email === ADMIN_EMAIL) ? "block" : "none";
+  });
 });
