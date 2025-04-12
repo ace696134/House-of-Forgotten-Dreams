@@ -72,17 +72,15 @@ document.getElementById("signup-button")?.addEventListener("click", (e) => {
 
 onAuthStateChanged(auth, user => {
   if (user?.email === "houseofforgottendreams@yahoo.com") {
-    adminPanel?.style?.display = "flex";
+    localStorage.setItem("userLoggedIn", "true");
+    document.getElementById("admin-panel").style.display = "block";
+    document.getElementById("item-form").style.display = "block";
   } else {
-    adminPanel?.style?.display = "none";
-  }
-
-  if (user) {
-    logoutBtn?.style?.setProperty("display", "inline");
-  } else {
-    logoutBtn?.style?.setProperty("display", "none");
+    document.getElementById("admin-panel").style.display = "none";
+    document.getElementById("item-form").style.display = "none";
   }
 });
+
 
 logoutBtn?.addEventListener("click", () => {
   signOut(auth).then(() => {
