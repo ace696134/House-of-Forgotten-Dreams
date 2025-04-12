@@ -71,15 +71,19 @@ document.getElementById("signup-button")?.addEventListener("click", (e) => {
 });
 
 onAuthStateChanged(auth, user => {
+  const itemForm = document.getElementById("item-form");
+  const adminPanel = document.getElementById("admin-panel");
+
   if (user?.email === "houseofforgottendreams@yahoo.com") {
     localStorage.setItem("userLoggedIn", "true");
-    adminPanel.style.display = "block";
-    document.getElementById("item-form").style.display = "block";
+    if (itemForm) itemForm.style.display = "block";
+    if (adminPanel) adminPanel.style.display = "block";
   } else {
-    adminPanel.style.display = "none";
-    document.getElementById("item-form").style.display = "none";
+    if (itemForm) itemForm.style.display = "none";
+    if (adminPanel) adminPanel.style.display = "none";
   }
 });
+
 
 logoutBtn?.addEventListener("click", () => {
   signOut(auth).then(() => {
