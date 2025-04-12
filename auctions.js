@@ -32,6 +32,7 @@ function renderAuctions(list) {
   list.forEach(item => {
     container.innerHTML += `
       <div class="auction-card" style="border:1px solid #ddd; padding:12px; border-radius:8px; margin-bottom:16px;">
+        <img src="${item.imageBase64}" alt="${item.title}" style="max-width:100%; border-radius:4px;"/>
         <h3>${item.title}</h3>
         <p>Current Bid: $${item.currentBid}</p>
         <div class="timer" id="timer-${item.id}" style="font-weight:bold;"></div>
@@ -39,6 +40,7 @@ function renderAuctions(list) {
   });
   startAllTimers();
 }
+
 
 // Filters
 function applyFilters() {
