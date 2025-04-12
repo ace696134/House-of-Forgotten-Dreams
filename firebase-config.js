@@ -20,7 +20,7 @@ const db = getFirestore(app);
 
 // App Check (reCAPTCHA Enterprise)
 initializeAppCheck(app, {
-  provider: new ReCaptchaEnterpriseProvider('6LewEBUrAAAAAILpiN3OfFxxK7CbO6VHht2gJgHC'),
+  provider: new ReCaptchaEnterpriseProvider('6LcEHxUrAAAAAKsdofqix1KIi0SPkMFerJIuwlfk'),
   isTokenAutoRefreshEnabled: true
 });
 
