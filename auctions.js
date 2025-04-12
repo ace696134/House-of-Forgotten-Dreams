@@ -152,5 +152,19 @@ saveBtn.addEventListener('click', () => {
   reader.readAsDataURL(file);
 });
 
+function deleteAuction(id) {
+  if (confirm('Are you sure you want to delete this listing?')) {
+    db.collection('auctions').doc(id).delete()
+      .then(() => {
+        alert('Listing deleted');
+        fetchAuctions();
+      })
+      .catch(err => {
+        console.error('Error deleting auction:', err);
+        alert('Could not delete listing.');
+      });
+  }
+}
+
 // ——— INITIALIZE ———
 fetchAuctions();
