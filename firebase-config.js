@@ -1,4 +1,5 @@
 // firebase-config.js
+// Load Firebase SDK from CDN
 const firebaseConfig = {
   apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
   authDomain: "backend-e5b61.firebaseapp.com",
@@ -11,5 +12,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-const db = firebase.firestore();
+
+// Export auth and db for use in other scripts
+export const auth = firebase.auth();
+export const db = firebase.firestore();
