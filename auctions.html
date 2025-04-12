@@ -23,22 +23,33 @@
     </nav>
   </header>
 
-  <main>
-    <section id="auctions" class="container">
-      <h2>Current Auctions</h2>
-      <div id="item-form" style="display:none;">
-        <input type="text" id="titleInput" placeholder="Title">
-        <input type="number" id="startingBidInput" placeholder="Starting Bid ($)">
-        <input type="datetime-local" id="endsAtInput" placeholder="End Time">
-        <input type="file" id="itemImgFile" accept="image/*">
-        <button id="saveAuctionBtn">Create Auction</button>
-      </div>
+<main>
+  <section id="auctions" class="container">
+    <h2>Current Auctions</h2>
 
-      <div class="auctions" id="auctionsContainer">
-        <!-- Auction items will be dynamically inserted here by script.js -->
-      </div>
-    </section>
-  </main>
+    <div style="margin-bottom: 20px;">
+      <input type="text" id="searchInput" placeholder="Search..." />
+      <select id="filterSelect">
+        <option value="">Sort By</option>
+        <option value="ending-soon">Ending Soon</option>
+        <option value="price-low-high">Price: Low to High</option>
+        <option value="price-high-low">Price: High to Low</option>
+      </select>
+    </div>
+
+    <div id="item-form" style="display: none;">
+      <input type="text" id="titleInput" placeholder="Auction Title" />
+      <input type="number" id="startingBidInput" placeholder="Starting Bid" />
+      <input type="datetime-local" id="endsAtInput" placeholder="Ends At" />
+      <input type="file" id="itemImgFile" accept="image/*" />
+      <button id="saveAuctionBtn">Create Auction</button>
+    </div>
+
+    <div class="auctions" id="auctionsContainer">
+      <!-- Auctions will be rendered here -->
+    </div>
+  </section>
+</main>
 
   <footer>
     <p>&copy; 2025 House of Forgotten Dreams. All rights reserved.</p>
