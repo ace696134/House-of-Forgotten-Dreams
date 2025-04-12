@@ -1,35 +1,105 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Auctions</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f3f3f3;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .auction-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .auction-card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .auction-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .auction-desc {
+      color: #555;
+    }
+  </style>
 </head>
 <body>
   <h1>Auctions Page</h1>
-  
-<!-- Firebase App (the core Firebase SDK) -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-check-compat.js"></script>
+  <div class="auction-container" id="auctionList"></div>
 
-<script>
-  const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID",
-  };
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-</script>
+  <!-- Firebase Init -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
+      authDomain: "backend-e5b61.firebaseapp.com",
+      projectId: "backend-e5b61",
+      storageBucket: "backend-e5b61.appspot.com",
+      messagingSenderId: "1081485617349",
+      appId: "1:1081485617349:web:073f122bcb6501701068ac",
+      measurementId: "G-XFKGCDJ51G"
+    };
 
-  <script src="auctions.js"></script>
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+  </script>
+
+  <!-- Auctions Script -->
+  <script>
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        alert("Please log in to view auctions.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      const auctionList = document.getElementById('auctionList');
+
+      db.collection("auctions").get().then(snapshot => {
+        if (snapshot.empty) {
+          auctionList.innerHTML = "<p>No auctions available.</p>";
+          return;
+        }
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const card = document.createElement("div");
+          card.className = "auction-card";
+          card.innerHTML = `
+            <div class="auction-title">${data.title || 'Untitled Auction'}</div>
+            <div class="auction-desc">${data.description || 'No description.'}</div>
+          `;
+          auctionList.appendChild(card);
+        });
+      }).catch(err => {
+        console.error("Error loading auctions:", err);
+        auctionList.innerHTML = "<p>Error loading auctions. Try again later.</p>";
+      });
+    });
+  </script>
 </body>
 </html>
