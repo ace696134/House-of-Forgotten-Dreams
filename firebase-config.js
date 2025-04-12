@@ -1,5 +1,9 @@
+
 // firebase-config.js
-// Load Firebase SDK from CDN
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
   authDomain: "backend-e5b61.firebaseapp.com",
@@ -10,9 +14,8 @@ const firebaseConfig = {
   measurementId: "G-XFKGCDJ51G"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Export auth and db for use in other scripts
-export const auth = firebase.auth();
-export const db = firebase.firestore();
+export { auth, db };
