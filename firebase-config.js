@@ -1,11 +1,3 @@
-<!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-
-<!-- Your config -->
-<script src="firebase-config.js"></script>
-
 // firebase-config.js
 const firebaseConfig = {
   apiKey: "AIzaSyCMHbxQszAY5DykXY-mPxr1jENu_sWp1NE",
@@ -18,6 +10,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
