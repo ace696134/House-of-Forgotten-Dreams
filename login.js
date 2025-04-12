@@ -4,10 +4,14 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gsta
 
 document.getElementById("login-form").addEventListener("submit", (e) => {
   e.preventDefault();
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
   signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+      // optional: store login status
+      localStorage.setItem("userLoggedIn", "true");
+    })
     .catch(err => alert(err.message));
 });
 
