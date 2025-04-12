@@ -8,12 +8,15 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    document.getElementById('login-message').textContent = "Login successful!";
-    // Optionally redirect: window.location.href = 'dashboard.html';
-  } catch (error) {
-    document.getElementById('login-message').textContent = "Login failed: " + error.message;
-  }
+try {
+  const userCredential = await signInWithEmailAndPassword(auth, email, password);
+  document.getElementById('login-message').textContent = "Login successful!";
+  
+  // Redirect after login
+  window.location.href = 'dashboard.html';
+} catch (error) {
+  document.getElementById('login-message').textContent = "Login failed: " + error.message;
+}
+
 });
 
