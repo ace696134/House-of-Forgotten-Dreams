@@ -1,20 +1,14 @@
-// auctions.js
+
 import { auth, db } from './firebase-config.js';
-
-let isAdmin = false;
-let auctions = [];
-
-auth.onAuthStateChanged(user => {
-  isAdmin = user?.email === 'houseofforgottendreams@yahoo.com';
-  fetchAuctions();
-});
 
 function fetchAuctions() {
   db.collection('auctions').orderBy('endsAt', 'asc').get()
     .then(snap => {
-      auctions = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-      applyFilters();
+      const auctions = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      console.log('Auctions:', auctions);
+      // applyFilters(); // Uncomment if this function is defined elsewhere
     })
     .catch(err => console.error('Fetch auctions error', err));
 }
 
+fetchAuctions();
